@@ -1,0 +1,20 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "AcctFreezeAddResponse": {
+      "AcctFreezeAddRs": null,
+      "AcctFreezeAdd_CustomData": {
+        "acctId": {
+          "foracid": "02015211598",
+          "solId": "071"
+        },
+        "cifId": "02646782",
+        "freezeCode": {
+          "code": "D"
+        },
+        "freezeRemarks": "INT ACCURAL STOP. REFER TO CCAC"
+      }
+    }
+  }
+}

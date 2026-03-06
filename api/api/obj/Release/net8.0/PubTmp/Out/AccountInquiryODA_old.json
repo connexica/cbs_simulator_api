@@ -1,0 +1,195 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "ODAcctInqResponse": {
+      "ODAcctInqRs": {
+        "ODAcctInq": {
+          "AcctId": "00115036806",
+          "AcctType": {
+            "SchmCode": "ODA",
+            "SchmType": "ODA"
+          },
+          "AcctCurr": "NPR",
+          "BankInfo": {
+            "BankId": null,
+            "Name": null,
+            "BranchId": null,
+            "BranchName": null,
+            "PostAddr": {
+              "Addr1": null,
+              "Addr2": null,
+              "Addr3": null,
+              "City": null,
+              "StateProv": null,
+              "PostalCode": null,
+              "Country": null,
+              "AddrType": null
+            }
+          }
+        },
+        "AcctOpnDt": "2011-07-06T00:00:00",
+        "ModeOfOper": "1",
+        "CustId": {
+          "CustId": "02036794",
+          "PersonName": {
+            "LastName": null,
+            "FirstName": null,
+            "MiddleName": null,
+            "Name": "DEEPAK BHATTA",
+            "TitlePrefix": "MR."
+          }
+        },
+        "ODAcctGenInfo": {
+          "EotEnabled": "N",
+          "DrIntMethodInd": "E",
+          "GenLedgerSubHead": {
+            "GenLedgerSubHeadCode": "07005",
+            "CurCode": "NPR"
+          },
+          "AcctShortName": "DEEPAK",
+          "AcctStmtFreq": {
+            "Cal": null,
+            "Type": "M",
+            "StartDt": "31",
+            "WeekDay": "0",
+            "WeekNum": null,
+            "HolStat": "N"
+          },
+          "DespatchMode": "N",
+          "AcctStmtMode": "S",
+          "AcctName": "DEEPAK BHATTA",
+          "AcctStmtNxtPrintDt": "2023-11-05T00:00:00"
+        },
+        "AcctBalCrDrInd": "D",
+        "AcctBalAmt": {
+          "amountValue": "4766277.36",
+          "currencyCode": "NPR"
+        },
+        "AccrIntCrDrInd": "D",
+        "AccrIntRate": {
+          "value": "8.28"
+        },
+        "IntCalcFreq": {
+          "Cal": null,
+          "Type": null,
+          "StartDt": "0",
+          "WeekDay": "0",
+          "WeekNum": null,
+          "HolStat": null
+        },
+        "IntRateCode": "LBASE",
+        "NetIntDrCrInd": "D",
+        "NetIntRate": {
+          "value": "8.28"
+        },
+        "WithHoldingTaxDtls": {
+          "TaxCategory": "N",
+          "FloorLimitAmt": {
+            "amountValue": "0.00",
+            "currencyCode": "NPR"
+          },
+          "WithHoldingPercent": {
+            "value": "6.0"
+          }
+        },
+        "NomineeInfoRec": {
+          "RegNum": "OTH",
+          "NomineeName": "SUSHIL BHATTA",
+          "RelType": "OTHER",
+          "NomineeContactInfo": {
+            "PhoneNum": {
+              "TelephoneNum": null,
+              "FaxNum": null,
+              "TelexNum": null
+            },
+            "EmailAddr": null,
+            "PostAddr": {
+              "Addr1": "OTH",
+              "Addr2": "OTH",
+              "Addr3": "OTH",
+              "City": "OTH",
+              "StateProv": "OTH",
+              "PostalCode": "00977",
+              "Country": "NP",
+              "AddrType": null
+            }
+          },
+          "NomineeMinorFlg": "N",
+          "NomineePercent": {
+            "value": "100.0"
+          },
+          "GuardianInfo": {
+            "GuardianCode": null,
+            "GuardianName": null,
+            "GuardianContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": null,
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": null,
+                "Addr2": null,
+                "Addr3": null,
+                "City": null,
+                "StateProv": null,
+                "PostalCode": null,
+                "Country": null,
+                "AddrType": null
+              }
+            }
+          },
+          "RecDelFlg": "N"
+        },
+        "RelPartyRec": {
+          "RelPartyType": "M",
+          "RelPartyTypeDesc": "MAIN HOLDER OF ACCOUNT",
+          "RelPartyCode": null,
+          "RelPartyCodeDesc": null,
+          "CustId": {
+            "CustId": "02036794",
+            "PersonName": {
+              "LastName": null,
+              "FirstName": null,
+              "MiddleName": null,
+              "Name": "DEEPAK BHATTA",
+              "TitlePrefix": "MR."
+            }
+          },
+          "RelPartyContactInfo": {
+            "PhoneNum": {
+              "TelephoneNum": "+977(01)9851034327",
+              "FaxNum": null,
+              "TelexNum": null
+            },
+            "EmailAddr": null,
+            "PostAddr": {
+              "Addr1": "NA",
+              "Addr2": "02,SANEPA,LALITPUR 2",
+              "Addr3": "SANEPA,Lalitpur Metropolitian City",
+              "City": "308",
+              "StateProv": "3",
+              "PostalCode": "44600",
+              "Country": "NP",
+              "AddrType": "Mailing"
+            }
+          },
+          "RecDelFlg": "N"
+        },
+        "basel": {
+          "security_indicator": {
+            "value": "0.0"
+          },
+          "debt_seniority": null,
+          "security_code": {
+            "code": null,
+            "codeDesc": null
+          }
+        }
+      },
+      "ODAcctInq_CustomData": null
+    }
+  }
+}

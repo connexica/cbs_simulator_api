@@ -1,0 +1,16 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "createCorporateCustomerResponse": {
+      "CustStatusDetails": {
+        "cifid": "10668314",
+        "desc": "Corporate Customer successfully created with CIFID 10668314",
+        "entity": "Corporate Customer",
+        "service": "CIFCorpCustomerCreate",
+        "status": "SUCCESS"
+      },
+      "createCorporateCustomer_CustomData": null
+    }
+  }
+}

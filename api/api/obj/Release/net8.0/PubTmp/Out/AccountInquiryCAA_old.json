@@ -1,0 +1,356 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "CAAcctInqResponse": {
+      "CAAcctInqRs": {
+        "CAAcctId": {
+          "AcctId": "01715105577",
+          "AcctType": {
+            "SchmCode": "CLNR",
+            "SchmType": "CAA"
+          },
+          "AcctCurr": "NPR",
+          "BankInfo": {
+            "BankId": null,
+            "Name": null,
+            "BranchId": null,
+            "BranchName": null,
+            "PostAddr": {
+              "Addr1": null,
+              "Addr2": null,
+              "Addr3": null,
+              "City": null,
+              "StateProv": null,
+              "PostalCode": null,
+              "Country": null,
+              "AddrType": null
+            }
+          }
+        },
+        "AcctOpnDt": "2013-06-26T00:00:00",
+        "CustId": {
+          "CustId": "02126553",
+          "PersonName": {
+            "LastName": null,
+            "FirstName": null,
+            "MiddleName": null,
+            "Name": "KATHMANDU FUTSAL PRIVATE LIMITED",
+            "TitlePrefix": "M/S"
+          }
+        },
+        "CAAcctGenInfo": {
+          "EotEnabled": "N",
+          "DrIntMethodInd": "E",
+          "GenLedgerSubHead": {
+            "GenLedgerSubHeadCode": "37010",
+            "CurCode": "NPR"
+          },
+          "AcctShortName": "KATHMANDU",
+          "AcctStmtFreq": {
+            "Cal": null,
+            "Type": "M",
+            "StartDt": "31",
+            "WeekDay": "0",
+            "WeekNum": null,
+            "HolStat": "N"
+          },
+          "DespatchMode": "N",
+          "AcctStmtMode": "S",
+          "AcctName": "KATHMANDU FUTSAL PRIVATE LIMITED",
+          "AcctStmtNxtPrintDt": "2022-09-02T00:00:00"
+        },
+        "AcctBalCrDrInd": "C",
+        "AcctBalAmt": {
+          "amountValue": "107422.08",
+          "currencyCode": "NPR"
+        },
+        "AccrIntDrCrInd": "C",
+        "AccrIntRate": {
+          "value": "0.5"
+        },
+        "IntCalcFreq": {
+          "Cal": null,
+          "Type": "D",
+          "StartDt": "0",
+          "WeekDay": "0",
+          "WeekNum": null,
+          "HolStat": "N"
+        },
+        "IntRateCode": "OZERO",
+        "NetIntDrCrInd": "C",
+        "NetIntRate": {
+          "value": "0.5"
+        },
+        "WithHoldingTaxDtls": {
+          "TaxCategory": "W",
+          "FloorLimitAmt": {
+            "amountValue": "0.00",
+            "currencyCode": "NPR"
+          },
+          "WithHoldingPercent": {
+            "value": "15.0"
+          }
+        },
+        "RelPartyRec": [
+          {
+            "RelPartyType": "M",
+            "RelPartyTypeDesc": "MAIN HOLDER OF ACCOUNT",
+            "RelPartyCode": null,
+            "RelPartyCodeDesc": null,
+            "CustId": {
+              "CustId": "02126553",
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "KATHMANDU FUTSAL PRIVATE LIMITED",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": null,
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "308",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Registered"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "DIPENDRA ADHIKARI",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "SANU RAJA TIMALSINA",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "ROSHAN MAHARJAN",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "ANAND BABU KHANAL",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "UJJWAL ARYAL",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": null,
+              "PersonName": {
+                "LastName": null,
+                "FirstName": null,
+                "MiddleName": null,
+                "Name": "MANISHA BARAL",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9802100025",
+                "FaxNum": null,
+                "TelexNum": null
+              },
+              "EmailAddr": null,
+              "PostAddr": {
+                "Addr1": "SANEPA",
+                "Addr2": "LALITPUR 03",
+                "Addr3": "LALITPUR 03",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          }
+        ],
+        "basel": {
+          "security_indicator": {
+            "value": "0.0"
+          },
+          "debt_seniority": null,
+          "security_code": {
+            "code": null,
+            "codeDesc": null
+          }
+        }
+      },
+      "CAAcctInq_CustomData": null
+    }
+  }
+}

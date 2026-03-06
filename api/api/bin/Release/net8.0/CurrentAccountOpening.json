@@ -1,0 +1,36 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "CAAcctAddResponse": {
+      "CAAcctAddRs": {
+        "CAAcctId": {
+          "AcctId": "55509473231",
+          "AcctType": {
+            "SchmCode": "",
+            "SchmType": ""
+          },
+          "AcctCurr": "",
+          "BankInfo": {
+            "BankId": "",
+            "Name": "",
+            "BranchId": "",
+            "BranchName": "",
+            "PostAddr": {
+              "Addr1": "",
+              "Addr2": "",
+              "Addr3": "",
+              "City": "",
+              "StateProv": "",
+              "PostalCode": "",
+              "Country": "",
+              "AddrType": ""
+            }
+          }
+        }
+      },
+      "CAAcctAdd_CustomData": null
+    }
+  },
+  "Errors": null
+}

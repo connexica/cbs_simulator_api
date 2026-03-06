@@ -1,0 +1,16 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "updateCorpCustomerResponse": {
+      "CustomerModOutputStruct": {
+        "cifid": "10503976",
+        "desc": "Corporate Customer successfully updated with CIFID 10503976",
+        "entity": "Corporate Customer",
+        "service": "CIFCorpCustomerUpdate",
+        "status": "SUCCESS"
+      },
+      "updateCorpCustomer_CustomData": null
+    }
+  }
+}

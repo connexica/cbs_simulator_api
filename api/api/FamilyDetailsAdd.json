@@ -1,0 +1,13 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "executeFinacleScriptResponse": {
+      "ExecuteFinacleScriptOutputVO": null,
+      "executeFinacleScript_CustomData": {
+        "SuccessOrFailure": "N",
+        "Error_1": "Error^Record already Exists.^txtfldname136"
+      }
+    }
+  }
+}

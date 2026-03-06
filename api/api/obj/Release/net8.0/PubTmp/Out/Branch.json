@@ -1,0 +1,820 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CODE": "095",
+        "DESCRIPTION": "GOKULGANGA"
+      },
+      {
+        "CODE": "999",
+        "DESCRIPTION": "HEAD OFFICE"
+      },
+      {
+        "CODE": "002",
+        "DESCRIPTION": "BIRGUNJ"
+      },
+      {
+        "CODE": "001",
+        "DESCRIPTION": "HATTISAR"
+      },
+      {
+        "CODE": "078",
+        "DESCRIPTION": "JUMRI"
+      },
+      {
+        "CODE": "079",
+        "DESCRIPTION": "GARUDA"
+      },
+      {
+        "CODE": "080",
+        "DESCRIPTION": "PUTALISADAK EXTENSION COUNTER"
+      },
+      {
+        "CODE": "081",
+        "DESCRIPTION": "BAGLUNG"
+      },
+      {
+        "CODE": "082",
+        "DESCRIPTION": "BATTAR"
+      },
+      {
+        "CODE": "083",
+        "DESCRIPTION": "CHARIKOT"
+      },
+      {
+        "CODE": "084",
+        "DESCRIPTION": "BANEPA"
+      },
+      {
+        "CODE": "085",
+        "DESCRIPTION": "AAMCHOWK"
+      },
+      {
+        "CODE": "088",
+        "DESCRIPTION": "GADHI"
+      },
+      {
+        "CODE": "089",
+        "DESCRIPTION": "ROSHI"
+      },
+      {
+        "CODE": "090",
+        "DESCRIPTION": "ADARSHAKOTWAL"
+      },
+      {
+        "CODE": "091",
+        "DESCRIPTION": "BAHADURMAI"
+      },
+      {
+        "CODE": "092",
+        "DESCRIPTION": "GOLANJAR"
+      },
+      {
+        "CODE": "094",
+        "DESCRIPTION": "BUDIGANGA"
+      },
+      {
+        "CODE": "096",
+        "DESCRIPTION": "GAUSHALA"
+      },
+      {
+        "CODE": "098",
+        "DESCRIPTION": "BINAYI TRIVENI"
+      },
+      {
+        "CODE": "100",
+        "DESCRIPTION": "YASHODHARA"
+      },
+      {
+        "CODE": "101",
+        "DESCRIPTION": "MADHABNARAYAN"
+      },
+      {
+        "CODE": "003",
+        "DESCRIPTION": "BIRATNAGAR"
+      },
+      {
+        "CODE": "004",
+        "DESCRIPTION": "NEW ROAD"
+      },
+      {
+        "CODE": "005",
+        "DESCRIPTION": "POKHARA"
+      },
+      {
+        "CODE": "006",
+        "DESCRIPTION": "TRIPURESHWOR"
+      },
+      {
+        "CODE": "007",
+        "DESCRIPTION": "DAMAK"
+      },
+      {
+        "CODE": "008",
+        "DESCRIPTION": "B&B EXTENSION COUNTER"
+      },
+      {
+        "CODE": "009",
+        "DESCRIPTION": "NARAYANGARH"
+      },
+      {
+        "CODE": "010",
+        "DESCRIPTION": "PATAN"
+      },
+      {
+        "CODE": "011",
+        "DESCRIPTION": "OLD BANESHWOR"
+      },
+      {
+        "CODE": "012",
+        "DESCRIPTION": "TIKAPUR"
+      },
+      {
+        "CODE": "014",
+        "DESCRIPTION": "DHANGADI"
+      },
+      {
+        "CODE": "015",
+        "DESCRIPTION": "BHAIRAHAWA"
+      },
+      {
+        "CODE": "017",
+        "DESCRIPTION": "THAMEL"
+      },
+      {
+        "CODE": "018",
+        "DESCRIPTION": "GHORAHI"
+      },
+      {
+        "CODE": "063",
+        "DESCRIPTION": "ILAM"
+      },
+      {
+        "CODE": "065",
+        "DESCRIPTION": "BIRATCHOWK"
+      },
+      {
+        "CODE": "067",
+        "DESCRIPTION": "BENI"
+      },
+      {
+        "CODE": "068",
+        "DESCRIPTION": "KULESHWOR"
+      },
+      {
+        "CODE": "069",
+        "DESCRIPTION": "PALPA"
+      },
+      {
+        "CODE": "070",
+        "DESCRIPTION": "KAMALBINAYAK"
+      },
+      {
+        "CODE": "071",
+        "DESCRIPTION": "MIRCHAIYA"
+      },
+      {
+        "CODE": "073",
+        "DESCRIPTION": "CHANDRAPUR"
+      },
+      {
+        "CODE": "074",
+        "DESCRIPTION": "DHANKUTA"
+      },
+      {
+        "CODE": "075",
+        "DESCRIPTION": "JORPATI"
+      },
+      {
+        "CODE": "076",
+        "DESCRIPTION": "BESISAHAR"
+      },
+      {
+        "CODE": "077",
+        "DESCRIPTION": "TAPLEJUNG"
+      },
+      {
+        "CODE": "177",
+        "DESCRIPTION": "NEWROAD NEPALGUNJ BRANCH"
+      },
+      {
+        "CODE": "178",
+        "DESCRIPTION": "KATARI"
+      },
+      {
+        "CODE": "179",
+        "DESCRIPTION": "GORKHA BAZAR"
+      },
+      {
+        "CODE": "180",
+        "DESCRIPTION": "HATTIBAN"
+      },
+      {
+        "CODE": "181",
+        "DESCRIPTION": "WALING"
+      },
+      {
+        "CODE": "182",
+        "DESCRIPTION": "GORUSINGHE"
+      },
+      {
+        "CODE": "040",
+        "DESCRIPTION": "NAMCHE"
+      },
+      {
+        "CODE": "019",
+        "DESCRIPTION": "TULSIPUR"
+      },
+      {
+        "CODE": "020",
+        "DESCRIPTION": "NEPALGUNJ"
+      },
+      {
+        "CODE": "021",
+        "DESCRIPTION": "TINKUNE"
+      },
+      {
+        "CODE": "022",
+        "DESCRIPTION": "GATTHAGHAR"
+      },
+      {
+        "CODE": "023",
+        "DESCRIPTION": "GONGABU"
+      },
+      {
+        "CODE": "024",
+        "DESCRIPTION": "KUMARIPATI"
+      },
+      {
+        "CODE": "025",
+        "DESCRIPTION": "KALANKI"
+      },
+      {
+        "CODE": "026",
+        "DESCRIPTION": "JANAKPUR"
+      },
+      {
+        "CODE": "027",
+        "DESCRIPTION": "SATDOBATO"
+      },
+      {
+        "CODE": "028",
+        "DESCRIPTION": "SINDHULI"
+      },
+      {
+        "CODE": "029",
+        "DESCRIPTION": "CHANDRAGADHI"
+      },
+      {
+        "CODE": "030",
+        "DESCRIPTION": "BARDIBAS"
+      },
+      {
+        "CODE": "032",
+        "DESCRIPTION": "SHANKHAMUL"
+      },
+      {
+        "CODE": "033",
+        "DESCRIPTION": "SWOYAMBHU"
+      },
+      {
+        "CODE": "034",
+        "DESCRIPTION": "SARASWATINAGAR"
+      },
+      {
+        "CODE": "036",
+        "DESCRIPTION": "HETAUDA"
+      },
+      {
+        "CODE": "039",
+        "DESCRIPTION": "KRISHNANAGAR"
+      },
+      {
+        "CODE": "041",
+        "DESCRIPTION": "DAILEKH"
+      },
+      {
+        "CODE": "042",
+        "DESCRIPTION": "KALAIYA"
+      },
+      {
+        "CODE": "043",
+        "DESCRIPTION": "BIRTAMOD"
+      },
+      {
+        "CODE": "044",
+        "DESCRIPTION": "ITAHARI"
+      },
+      {
+        "CODE": "045",
+        "DESCRIPTION": "DADELDHURA"
+      },
+      {
+        "CODE": "046",
+        "DESCRIPTION": "SIMARA"
+      },
+      {
+        "CODE": "048",
+        "DESCRIPTION": "BAUNIYA"
+      },
+      {
+        "CODE": "049",
+        "DESCRIPTION": "PARASI"
+      },
+      {
+        "CODE": "050",
+        "DESCRIPTION": "KOHALPUR"
+      },
+      {
+        "CODE": "051",
+        "DESCRIPTION": "KSHIRESHWOR"
+      },
+      {
+        "CODE": "052",
+        "DESCRIPTION": "KHADBARI"
+      },
+      {
+        "CODE": "053",
+        "DESCRIPTION": "BELTAR"
+      },
+      {
+        "CODE": "055",
+        "DESCRIPTION": "BIRAUTA"
+      },
+      {
+        "CODE": "056",
+        "DESCRIPTION": "BUDDHA CHOWK"
+      },
+      {
+        "CODE": "057",
+        "DESCRIPTION": "CHIPLEDHUNGA"
+      },
+      {
+        "CODE": "058",
+        "DESCRIPTION": "DAMAULI"
+      },
+      {
+        "CODE": "059",
+        "DESCRIPTION": "PARSHYANG"
+      },
+      {
+        "CODE": "060",
+        "DESCRIPTION": "KANTIPATH"
+      },
+      {
+        "CODE": "061",
+        "DESCRIPTION": "ANAMNAGAR"
+      },
+      {
+        "CODE": "127",
+        "DESCRIPTION": "KAKARVITTA"
+      },
+      {
+        "CODE": "128",
+        "DESCRIPTION": "GAIGHAT"
+      },
+      {
+        "CODE": "129",
+        "DESCRIPTION": "YOGIKUTI"
+      },
+      {
+        "CODE": "130",
+        "DESCRIPTION": "PHARPING"
+      },
+      {
+        "CODE": "131",
+        "DESCRIPTION": "KIRTIPUR"
+      },
+      {
+        "CODE": "132",
+        "DESCRIPTION": "BANSGADHI"
+      },
+      {
+        "CODE": "133",
+        "DESCRIPTION": "DHANESHWOR"
+      },
+      {
+        "CODE": "134",
+        "DESCRIPTION": "HATTIGAUDA"
+      },
+      {
+        "CODE": "135",
+        "DESCRIPTION": "MADHYAPUR THIMI"
+      },
+      {
+        "CODE": "136",
+        "DESCRIPTION": "ICHANGUNARAYAN"
+      },
+      {
+        "CODE": "137",
+        "DESCRIPTION": "BALUWAKHANI"
+      },
+      {
+        "CODE": "139",
+        "DESCRIPTION": "NAYABAZAR"
+      },
+      {
+        "CODE": "140",
+        "DESCRIPTION": "KALIMATI"
+      },
+      {
+        "CODE": "141",
+        "DESCRIPTION": "CAMPUS CHOWK"
+      },
+      {
+        "CODE": "142",
+        "DESCRIPTION": "KADAGHARI"
+      },
+      {
+        "CODE": "144",
+        "DESCRIPTION": "DUHABI"
+      },
+      {
+        "CODE": "146",
+        "DESCRIPTION": "IMADOLE"
+      },
+      {
+        "CODE": "147",
+        "DESCRIPTION": "MURLICHOWK"
+      },
+      {
+        "CODE": "148",
+        "DESCRIPTION": "LUKLA"
+      },
+      {
+        "CODE": "149",
+        "DESCRIPTION": "KANCHANBARI"
+      },
+      {
+        "CODE": "150",
+        "DESCRIPTION": "RAJMARGA CHOWK"
+      },
+      {
+        "CODE": "151",
+        "DESCRIPTION": "AMARPATH"
+      },
+      {
+        "CODE": "152",
+        "DESCRIPTION": "KAPAN"
+      },
+      {
+        "CODE": "153",
+        "DESCRIPTION": "SURYABINAYAK"
+      },
+      {
+        "CODE": "154",
+        "DESCRIPTION": "CHAPAGAUN"
+      },
+      {
+        "CODE": "155",
+        "DESCRIPTION": "RAMKOT"
+      },
+      {
+        "CODE": "156",
+        "DESCRIPTION": "NEPALTAR"
+      },
+      {
+        "CODE": "157",
+        "DESCRIPTION": "BALKOT"
+      },
+      {
+        "CODE": "158",
+        "DESCRIPTION": "BODE"
+      },
+      {
+        "CODE": "160",
+        "DESCRIPTION": "DHADINGBESI"
+      },
+      {
+        "CODE": "162",
+        "DESCRIPTION": "RAMANANDA CHOWK"
+      },
+      {
+        "CODE": "163",
+        "DESCRIPTION": "KALOPUL"
+      },
+      {
+        "CODE": "164",
+        "DESCRIPTION": "DUDHAULI"
+      },
+      {
+        "CODE": "165",
+        "DESCRIPTION": "NARADEVI"
+      },
+      {
+        "CODE": "166",
+        "DESCRIPTION": "INARUWA"
+      },
+      {
+        "CODE": "167",
+        "DESCRIPTION": "DALDALE"
+      },
+      {
+        "CODE": "169",
+        "DESCRIPTION": "GOLBAJAR"
+      },
+      {
+        "CODE": "170",
+        "DESCRIPTION": "DUMRE"
+      },
+      {
+        "CODE": "171",
+        "DESCRIPTION": "MAHENDRACHOWK"
+      },
+      {
+        "CODE": "172",
+        "DESCRIPTION": "HEMJA"
+      },
+      {
+        "CODE": "173",
+        "DESCRIPTION": "MANGALPUR"
+      },
+      {
+        "CODE": "174",
+        "DESCRIPTION": "PADAMPUR"
+      },
+      {
+        "CODE": "175",
+        "DESCRIPTION": "LUMBINI"
+      },
+      {
+        "CODE": "183",
+        "DESCRIPTION": "SUNDHARA"
+      },
+      {
+        "CODE": "184",
+        "DESCRIPTION": "KHAIRENI"
+      },
+      {
+        "CODE": "185",
+        "DESCRIPTION": "NAREPHANT"
+      },
+      {
+        "CODE": "187",
+        "DESCRIPTION": "JAWALAKHEL"
+      },
+      {
+        "CODE": "188",
+        "DESCRIPTION": "TAULIHAWA"
+      },
+      {
+        "CODE": "189",
+        "DESCRIPTION": "SINAMANGAL_EXTE"
+      },
+      {
+        "CODE": "502",
+        "DESCRIPTION": "SME"
+      },
+      {
+        "CODE": "503",
+        "DESCRIPTION": "RBU"
+      },
+      {
+        "CODE": "504",
+        "DESCRIPTION": "TREASURY"
+      },
+      {
+        "CODE": "505",
+        "DESCRIPTION": "MICRO BANKING"
+      },
+      {
+        "CODE": "506",
+        "DESCRIPTION": "CORPORATE CREDIT"
+      },
+      {
+        "CODE": "507",
+        "DESCRIPTION": "CENTRALIZED LOAN RECOVERY DEPARTMENT"
+      },
+      {
+        "CODE": "013",
+        "DESCRIPTION": "MAHENDRANAGAR"
+      },
+      {
+        "CODE": "035",
+        "DESCRIPTION": "MAHARAJGUNJ"
+      },
+      {
+        "CODE": "159",
+        "DESCRIPTION": "DHAPASI"
+      },
+      {
+        "CODE": "102",
+        "DESCRIPTION": "DULEGAUDA"
+      },
+      {
+        "CODE": "103",
+        "DESCRIPTION": "GAIDAKOT"
+      },
+      {
+        "CODE": "104",
+        "DESCRIPTION": "BARDAGHAT"
+      },
+      {
+        "CODE": "105",
+        "DESCRIPTION": "KOTIHAWA"
+      },
+      {
+        "CODE": "106",
+        "DESCRIPTION": "JITPUR"
+      },
+      {
+        "CODE": "107",
+        "DESCRIPTION": "LAHAN"
+      },
+      {
+        "CODE": "108",
+        "DESCRIPTION": "SURUNGA"
+      },
+      {
+        "CODE": "109",
+        "DESCRIPTION": "GAURADAHA"
+      },
+      {
+        "CODE": "110",
+        "DESCRIPTION": "PATHARI"
+      },
+      {
+        "CODE": "111",
+        "DESCRIPTION": "LAMKI"
+      },
+      {
+        "CODE": "112",
+        "DESCRIPTION": "JUMLA"
+      },
+      {
+        "CODE": "115",
+        "DESCRIPTION": "BHARATPUR"
+      },
+      {
+        "CODE": "116",
+        "DESCRIPTION": "ATTARIYA"
+      },
+      {
+        "CODE": "117",
+        "DESCRIPTION": "LAMAHI"
+      },
+      {
+        "CODE": "118",
+        "DESCRIPTION": "KHAJURA"
+      },
+      {
+        "CODE": "119",
+        "DESCRIPTION": "MUSIKOT"
+      },
+      {
+        "CODE": "120",
+        "DESCRIPTION": "PUTHA UTTARGANGA"
+      },
+      {
+        "CODE": "121",
+        "DESCRIPTION": "CHANDRAUTA"
+      },
+      {
+        "CODE": "122",
+        "DESCRIPTION": "PARSA"
+      },
+      {
+        "CODE": "123",
+        "DESCRIPTION": "CHABAHIL"
+      },
+      {
+        "CODE": "124",
+        "DESCRIPTION": "MANIGRAM"
+      },
+      {
+        "CODE": "125",
+        "DESCRIPTION": "SAURAHA PHARSATIKAR"
+      },
+      {
+        "CODE": "126",
+        "DESCRIPTION": "RAJBIRAJ"
+      },
+      {
+        "CODE": "192",
+        "DESCRIPTION": "LUBHU"
+      },
+      {
+        "CODE": "193",
+        "DESCRIPTION": "THANKOT"
+      },
+      {
+        "CODE": "016",
+        "DESCRIPTION": "BUTWAL"
+      },
+      {
+        "CODE": "031",
+        "DESCRIPTION": "BOUDDHA"
+      },
+      {
+        "CODE": "038",
+        "DESCRIPTION": "DHARAN"
+      },
+      {
+        "CODE": "054",
+        "DESCRIPTION": "TANDI"
+      },
+      {
+        "CODE": "062",
+        "DESCRIPTION": "LAKESIDE"
+      },
+      {
+        "CODE": "087",
+        "DESCRIPTION": "MARCHAWARI"
+      },
+      {
+        "CODE": "093",
+        "DESCRIPTION": "MAKALU"
+      },
+      {
+        "CODE": "099",
+        "DESCRIPTION": "RAMGOPALPUR"
+      },
+      {
+        "CODE": "114",
+        "DESCRIPTION": "LEKHNATH"
+      },
+      {
+        "CODE": "138",
+        "DESCRIPTION": "LAZIMPAT"
+      },
+      {
+        "CODE": "145",
+        "DESCRIPTION": "GANESHTHAN"
+      },
+      {
+        "CODE": "161",
+        "DESCRIPTION": "B.P. CHOWK"
+      },
+      {
+        "CODE": "168",
+        "DESCRIPTION": "KALYANPUR"
+      },
+      {
+        "CODE": "176",
+        "DESCRIPTION": "HARIWAN"
+      },
+      {
+        "CODE": "191",
+        "DESCRIPTION": "BHAISEPATI"
+      },
+      {
+        "CODE": "501",
+        "DESCRIPTION": "PSD"
+      },
+      {
+        "CODE": "194",
+        "DESCRIPTION": "GETA EYE HOSPITAL EXTENSION COUNTER"
+      },
+      {
+        "CODE": "037",
+        "DESCRIPTION": "BAGAR"
+      },
+      {
+        "CODE": "143",
+        "DESCRIPTION": "BIDHYAPATI CHOWK"
+      },
+      {
+        "CODE": "097",
+        "DESCRIPTION": "LALBANDI"
+      },
+      {
+        "CODE": "047",
+        "DESCRIPTION": "URLABARI"
+      },
+      {
+        "CODE": "190",
+        "DESCRIPTION": "NEWROAD GATE"
+      },
+      {
+        "CODE": "066",
+        "DESCRIPTION": "PHIKKAL"
+      },
+      {
+        "CODE": "186",
+        "DESCRIPTION": "TINCHULI"
+      },
+      {
+        "CODE": "064",
+        "DESCRIPTION": "KAWASOTI"
+      },
+      {
+        "CODE": "195",
+        "DESCRIPTION": "MULPANI"
+      },
+      {
+        "CODE": "113",
+        "DESCRIPTION": "DEVTAL"
+      },
+      {
+        "CODE": "086",
+        "DESCRIPTION": "DEVGHAT"
+      },
+      {
+        "CODE": "072",
+        "DESCRIPTION": "SURKHET"
+      }
+    ]
+  }
+}

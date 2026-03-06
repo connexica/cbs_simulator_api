@@ -1,0 +1,315 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "ODAcctInqResponse": {
+      "ODAcctInqRs": {
+        "ODAcctInq": {
+          "AcctId": "00515217484",
+          "AcctType": {
+            "SchmCode": "ODA",
+            "SchmType": "ODA"
+          },
+          "AcctCurr": "NPR",
+          "BankInfo": {
+            "BankId": "",
+            "Name": "",
+            "BranchId": "",
+            "BranchName": "",
+            "PostAddr": {
+              "Addr1": "",
+              "Addr2": "",
+              "Addr3": "",
+              "City": "",
+              "StateProv": "",
+              "PostalCode": "",
+              "Country": "",
+              "AddrType": ""
+            }
+          }
+        },
+        "AcctOpnDt": "2019-08-21T00:00:00",
+        "ModeOfOper": "1",
+        "CustId": {
+          "CustId": "02730899",
+          "PersonName": {
+            "LastName": "",
+            "FirstName": "",
+            "MiddleName": "",
+            "Name": "NEW ATTRACTION",
+            "TitlePrefix": "M/S"
+          }
+        },
+        "ODAcctGenInfo": {
+          "EotEnabled": "N",
+          "DrIntMethodInd": "E",
+          "GenLedgerSubHead": {
+            "GenLedgerSubHeadCode": "07005",
+            "CurCode": "NPR"
+          },
+          "AcctShortName": "NEW",
+          "AcctStmtFreq": {
+            "Cal": "",
+            "Type": "M",
+            "StartDt": "31",
+            "WeekDay": "0",
+            "WeekNum": "",
+            "HolStat": "N"
+          },
+          "DespatchMode": "N",
+          "AcctStmtMode": "S",
+          "AcctName": "NEW ATTRACTION",
+          "AcctStmtNxtPrintDt": "2024-01-09T00:00:00"
+        },
+        "AcctBalCrDrInd": "D",
+        "AcctBalAmt": {
+          "amountValue": "1153234.12",
+          "currencyCode": "NPR"
+        },
+        "AccrIntCrDrInd": "D",
+        "AccrIntRate": { "value": "8.6" },
+        "IntCalcFreq": {
+          "Cal": "",
+          "Type": "",
+          "StartDt": "0",
+          "WeekDay": "0",
+          "WeekNum": "",
+          "HolStat": ""
+        },
+        "IntRateCode": "LBASE",
+        "NetIntDrCrInd": "D",
+        "NetIntRate": { "value": "8.6" },
+        "WithHoldingTaxDtls": {
+          "TaxCategory": "N",
+          "FloorLimitAmt": {
+            "amountValue": "0.00",
+            "currencyCode": "NPR"
+          },
+          "WithHoldingPercent": { "value": "15.0" }
+        },
+        "RelPartyRec": [
+          {
+            "RelPartyType": "M",
+            "RelPartyTypeDesc": "MAIN HOLDER OF ACCOUNT",
+            "RelPartyCode": "",
+            "RelPartyCodeDesc": "",
+            "CustId": {
+              "CustId": "02730899",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "NEW ATTRACTION",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+(01)9808732027",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "N/A",
+                "Addr2": "04,MAHENDRAPOOL,POKHARA METROPOLITIAN CITY 04",
+                "Addr3": "POKHARA METROPOLITIAN CITY",
+                "City": "405",
+                "StateProv": "4",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Registered"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "SIGMD",
+            "RelPartyCodeDesc": "ACC SIGNATORY AND MANAGING DIRECTOR",
+            "CustId": {
+              "CustId": "02730911",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SOM MAYA MANANDHAR SHRESTHA",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9823701929",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NADIPUR",
+                "Addr2": "POKHARA 03",
+                "Addr3": "KASKI GANDAKI 04",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "ACCOP",
+            "RelPartyCodeDesc": "ACCOUNT OPERATOR",
+            "CustId": {
+              "CustId": "02730911",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SOM MAYA MANANDHAR SHRESTHA",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9823701929",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NADIPUR",
+                "Addr2": "POKHARA 03",
+                "Addr3": "KASKI GANDAKI 04",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "MANDE",
+            "RelPartyCodeDesc": "MANDATEE",
+            "CustId": {
+              "CustId": "02731196",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SUNDAR PRASAD SHRESTHA",
+                "TitlePrefix": "MR."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9808732027",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NADIPUR",
+                "Addr2": "POKHARA 03",
+                "Addr3": "KASKI GANDAKI 04",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": "",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SUNDAR SHRESTHA",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9808732027",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "MAHENDRAPOOL",
+                "Addr2": "POKHARA METROPOLITIAN CITY 04",
+                "Addr3": "KASKI 04",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "A",
+            "RelPartyTypeDesc": "AUTHORISED SIGNATORY",
+            "RelPartyCode": "BOD",
+            "RelPartyCodeDesc": "BOARD OF DIRECTOR",
+            "CustId": {
+              "CustId": "02730911",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SOM MAYA MANANDHAR SHRESTHA",
+                "TitlePrefix": "M/S"
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9808732027",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "MAHENDRAPOOL",
+                "Addr2": "POKHARA METROPOLITIAN CITY 04",
+                "Addr3": "KASKI 04",
+                "City": "OTH",
+                "StateProv": "OTH",
+                "PostalCode": "00977",
+                "Country": "NP",
+                "AddrType": "JCADD"
+              }
+            },
+            "RecDelFlg": "N"
+          }
+        ],
+        "basel": {
+          "security_indicator": { "value": "0.0" },
+          "debt_seniority": "",
+          "security_code": {
+            "code": "",
+            "codeDesc": ""
+          }
+        }
+      },
+      "ODAcctInq_CustomData": null
+    }
+  },
+  "Errors": null
+}

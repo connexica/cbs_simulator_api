@@ -1,0 +1,88 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CODE": "ECON",
+        "DESCRIPTION": "ELECTION COMMISSION OF NEPAL"
+      },
+      {
+        "CODE": "EOI",
+        "DESCRIPTION": "EMBASSY OF INDIA"
+      },
+      {
+        "CODE": "GON",
+        "DESCRIPTION": "GOVERNMENT OF NEPAL"
+      },
+      {
+        "CODE": "IRD",
+        "DESCRIPTION": "INLAND REVENUE DEPARTMENT"
+      },
+      {
+        "CODE": "LWO",
+        "DESCRIPTION": "LOCAL WARD OFFICE"
+      },
+      {
+        "CODE": "MOFA",
+        "DESCRIPTION": "MINISTRY OF FOREIGN AFFAIRS"
+      },
+      {
+        "CODE": "DAO",
+        "DESCRIPTION": "DISTRICT ADMINISTRATION OFFICE"
+      },
+      {
+        "CODE": "OTHE",
+        "DESCRIPTION": "OTHERS"
+      },
+      {
+        "CODE": "MOPIT",
+        "DESCRIPTION": "MINISTRY OF PHYSICAL INFRASTRUCTURE AND TRANSPORT"
+      },
+      {
+        "CODE": "MOE",
+        "DESCRIPTION": "MINISTRY OF EDUCATION"
+      },
+      {
+        "CODE": "DCSC",
+        "DESCRIPTION": "DEPARTMENTOF COMMERCE SUPPLIES CONSUMER PROTECTION"
+      },
+      {
+        "CODE": "DOCS",
+        "DESCRIPTION": "DEPARTMENT OF COMMERCE AND SUPPLY"
+      },
+      {
+        "CODE": "DDA",
+        "DESCRIPTION": "DEPARTMENT OF DRUG ADMINISTRATION"
+      },
+      {
+        "CODE": "MOICS",
+        "DESCRIPTION": "MINISTRY OF INDUSTRY COMMERCE AND SUPPLY"
+      },
+      {
+        "CODE": "OOMC",
+        "DESCRIPTION": "OFFICE OF MUNICIPAL EXECUTIVE"
+      },
+      {
+        "CODE": "OCR",
+        "DESCRIPTION": "OFFICE OF THE COMPANY REGISTRAR"
+      },
+      {
+        "CODE": "DCSI",
+        "DESCRIPTION": "DEPARTMENT OF COTTAGE AND SMALL INDUSTRIES"
+      },
+      {
+        "CODE": "DEOC",
+        "DESCRIPTION": "DEPARTMENT OF COOPERATIVES"
+      },
+      {
+        "CODE": "DONICR",
+        "DESCRIPTION": "DEPARTMENT OF NATIONAL ID AND CIVIL REGISTRATION"
+      },
+      {
+        "CODE": "UIAOI",
+        "DESCRIPTION": "UNIQUE IDENTIFICATION AUTHORITY OF INDIA"
+      }
+    ]
+  }
+}

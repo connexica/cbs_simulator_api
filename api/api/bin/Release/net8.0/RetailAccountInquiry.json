@@ -1,0 +1,305 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "SBAcctInqResponse": {
+      "SBAcctInqRs": {
+        "SBAcctId": {
+          "AcctId": "00115272133",
+          "AcctType": {
+            "SchmCode": "SVPS",
+            "SchmType": "SBA"
+          },
+          "AcctCurr": "NPR",
+          "BankInfo": {
+            "BankId": "",
+            "Name": "",
+            "BranchId": "",
+            "BranchName": "",
+            "PostAddr": {
+              "Addr1": "",
+              "Addr2": "",
+              "Addr3": "",
+              "City": "",
+              "StateProv": "",
+              "PostalCode": "",
+              "Country": "",
+              "AddrType": ""
+            }
+          }
+        },
+        "AcctOpnDt": "2017-08-30T00:00:00",
+        "CustId": {
+          "CustId": "02375789",
+          "PersonName": {
+            "LastName": "",
+            "FirstName": "",
+            "MiddleName": "",
+            "Name": "SUPRIYA BUDHATHOKI",
+            "TitlePrefix": "MRS."
+          }
+        },
+        "SBAcctGenInfo": {
+          "EotEnabled": "N",
+          "DrIntMethodInd": "E",
+          "GenLedgerSubHead": {
+            "GenLedgerSubHeadCode": "35050",
+            "CurCode": "NPR"
+          },
+          "AcctShortName": "SUPRIYA",
+          "AcctStmtFreq": {
+            "Cal": "",
+            "Type": "M",
+            "StartDt": "31",
+            "WeekDay": "0",
+            "WeekNum": "",
+            "HolStat": ""
+          },
+          "DespatchMode": "N",
+          "AcctStmtMode": "S",
+          "AcctName": "SUPRIYA BUDHATHOKI",
+          "AcctStmtNxtPrintDt": "2022-09-02T00:00:00"
+        },
+        "AcctBalCrDrInd": "C",
+        "AcctBalAmt": {
+          "amountValue": "46648666.88",
+          "currencyCode": "NPR"
+        },
+        "AccrIntDrCrInd": "C",
+        "AccrIntRate": { "value": "3.03" },
+        "IntCalcFreq": {
+          "Cal": "",
+          "Type": "",
+          "StartDt": "0",
+          "WeekDay": "0",
+          "WeekNum": "",
+          "HolStat": ""
+        },
+        "NetIntDrCrInd": "C",
+        "NetIntRate": { "value": "3.03" },
+        "WithHoldingTaxDtls": {
+          "TaxCategory": "W",
+          "FloorLimitAmt": {
+            "amountValue": "0.00",
+            "currencyCode": "NPR"
+          },
+          "WithHoldingPercent": { "value": "6.0" }
+        },
+        "RelPartyRec": [
+          {
+            "RelPartyType": "M",
+            "RelPartyTypeDesc": "MAIN HOLDER OF ACCOUNT",
+            "RelPartyCode": "",
+            "RelPartyCodeDesc": "",
+            "CustId": {
+              "CustId": "02375789",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SUPRIYA BUDHATHOKI",
+                "TitlePrefix": "MRS."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9841771361",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "supriyabudhathoki8@gmail.com",
+              "PostAddr": {
+                "Addr1": "NA",
+                "Addr2": "06,TAUFICAL,NAGARJUN 06",
+                "Addr3": "NAGARJUN MUNICIPALITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "44600",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "OTHERS",
+            "RelPartyCode": "FATHE",
+            "RelPartyCodeDesc": "FATHER",
+            "CustId": {
+              "CustId": "02415156",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "BIDUR BUDHATHOKI",
+                "TitlePrefix": "MR."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9851120813",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "bidurbudhathoki3@gmail.com",
+              "PostAddr": {
+                "Addr1": "NA",
+                "Addr2": "09,SYUCHATAR,KATHMANDU 09",
+                "Addr3": "KATHMANDU METROPOLITIAN CITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "OTHERS",
+            "RelPartyCode": "MOTHE",
+            "RelPartyCodeDesc": "MOTHER",
+            "CustId": {
+              "CustId": "02403434",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "LILA THAPA",
+                "TitlePrefix": "MRS."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9741088116",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NA",
+                "Addr2": "09,SYUCHATAR,NAGARJUN 09",
+                "Addr3": "NAGARJUN MUNICIPALITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "OTHERS",
+            "RelPartyCode": "SPOU",
+            "RelPartyCodeDesc": "SPOUSE",
+            "CustId": {
+              "CustId": "02492152",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SANJEEV KHANAL",
+                "TitlePrefix": "MR."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9849747435",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NA",
+                "Addr2": "03,TAUFICAL,NAGARJUN 03",
+                "Addr3": "NAGARJUN MUNICIPALITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "",
+            "RelPartyCode": "DAUGH",
+            "RelPartyCodeDesc": "",
+            "CustId": {
+              "CustId": "02789727",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SADHAVI KHANAL",
+                "TitlePrefix": "MS."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9841771361",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "NA",
+                "Addr2": "06,TAUFICAL,NAGARJUN 06",
+                "Addr3": "NAGARJUN MUNICIPALITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "Y"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "OTHERS",
+            "RelPartyCode": "DAUGH",
+            "RelPartyCodeDesc": "DAUGHTER",
+            "CustId": {
+              "CustId": "10182406",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "SHIVANSHI KHANAL",
+                "TitlePrefix": "MS."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+9779841771361",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "NOEMAIL@TEST.COM",
+              "PostAddr": {
+                "Addr1": "N/A,KATHMANDU",
+                "Addr2": "06,RAMKOT",
+                "Addr3": "NAGARJUN MUNICIPALITY",
+                "City": "306",
+                "StateProv": "3",
+                "PostalCode": "44600",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          }
+        ]
+      },
+      "SBAcctInq_CustomData": { "custConstDesc": "INDIVIDUAL FEMALE" }
+    }
+  },
+  "Errors": null
+}

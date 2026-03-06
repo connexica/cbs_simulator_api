@@ -1,0 +1,35 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "FreezeAcctsInqResponse": {
+      "FreezeAcctsInqRs": {
+        "OutputRec": {
+          "FreezeCode": "T",
+          "FreezeReasonCode": "DMLI",
+          "FreezeReasonCode2": null,
+          "FreezeReasonCode3": null,
+          "FreezeReasonCode4": null,
+          "FreezeReasonCode5": null,
+          "FreezeRemarks": "EEE",
+          "FreezeRemarks2": null,
+          "FreezeRemarks3": null,
+          "FreezeRemarks4": null,
+          "FreezeRemarks5": null,
+          "LastFreezeDate": "2025-11-21T00:00:00",
+          "PendTranCount": "0",
+          "PendClgIwdCount": "0",
+          "PendClgOwdCount": "0",
+          "PendSICount": "2"
+        }
+      },
+      "FreezeAcctsInq_CustomData": {
+        "acctId": {
+          "foracid": "00115325414",
+          "solId": "SB709163"
+        },
+        "cifId": "02469316"
+      }
+    }
+  }
+}

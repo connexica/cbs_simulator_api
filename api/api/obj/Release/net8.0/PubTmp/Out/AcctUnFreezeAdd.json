@@ -1,0 +1,17 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "AcctUnFreezeAddResponse": {
+      "AcctUnFreezeAddRs": "",
+      "AcctUnFreezeAdd_CustomData": {
+        "acctId": {
+          "foracid": "xxxxxxxx",
+          "solId": "xxx"
+        },
+        "cifId": "xxxxxxx"
+      }
+    }
+  },
+  "Errors": null
+}

@@ -1,0 +1,173 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "SBAcctInqResponse": {
+      "SBAcctInqRs": {
+        "SBAcctId": {
+          "AcctId": "00120740270",
+          "AcctType": {
+            "SchmCode": "SVST",
+            "SchmType": "SBA"
+          },
+          "AcctCurr": "NPR",
+          "BankInfo": {
+            "BankId": "",
+            "Name": "",
+            "BranchId": "",
+            "BranchName": "",
+            "PostAddr": {
+              "Addr1": "",
+              "Addr2": "",
+              "Addr3": "",
+              "City": "",
+              "StateProv": "",
+              "PostalCode": "",
+              "Country": "",
+              "AddrType": ""
+            }
+          }
+        },
+        "AcctOpnDt": "2022-06-08T00:00:00",
+        "CustId": {
+          "CustId": "03477209",
+          "PersonName": {
+            "LastName": "",
+            "FirstName": "",
+            "MiddleName": "",
+            "Name": "MILAN SINGH",
+            "TitlePrefix": "MR."
+          }
+        },
+        "SBAcctGenInfo": {
+          "EotEnabled": "N",
+          "DrIntMethodInd": "E",
+          "GenLedgerSubHead": {
+            "GenLedgerSubHeadCode": "35110",
+            "CurCode": "NPR"
+          },
+          "AcctShortName": "MILAN",
+          "AcctStmtFreq": {
+            "Cal": "",
+            "Type": "M",
+            "StartDt": "31",
+            "WeekDay": "0",
+            "WeekNum": "",
+            "HolStat": ""
+          },
+          "DespatchMode": "N",
+          "AcctStmtMode": "S",
+          "AcctName": "MILAN SINGH",
+          "AcctStmtNxtPrintDt": "2022-09-02T00:00:00"
+        },
+        "AcctBalCrDrInd": "C",
+        "AcctBalAmt": {
+          "amountValue": "11.11",
+          "currencyCode": "NPR"
+        },
+        "AccrIntDrCrInd": "C",
+        "AccrIntRate": {
+          "value": "4.15"
+        },
+        "IntCalcFreq": {
+          "Cal": "",
+          "Type": "",
+          "StartDt": "0",
+          "WeekDay": "0",
+          "WeekNum": "",
+          "HolStat": ""
+        },
+        "NetIntDrCrInd": "C",
+        "NetIntRate": {
+          "value": "4.15"
+        },
+        "WithHoldingTaxDtls": {
+          "TaxCategory": "W",
+          "FloorLimitAmt": {
+            "amountValue": "0.00",
+            "currencyCode": "NPR"
+          },
+          "WithHoldingPercent": {
+            "value": "6.0"
+          }
+        },
+        "RelPartyRec": [
+          {
+            "RelPartyType": "M",
+            "RelPartyTypeDesc": "MAIN HOLDER OF ACCOUNT",
+            "RelPartyCode": "",
+            "RelPartyCodeDesc": "",
+            "CustId": {
+              "CustId": "03477209",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "MILAN SINGH",
+                "TitlePrefix": "MR."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "9849869661",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "MIRMIRE",
+                "Addr2": "MAHALAXMI MUNICIPALITY 05",
+                "Addr3": "LALITPUR 03",
+                "City": "308",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          },
+          {
+            "RelPartyType": "O",
+            "RelPartyTypeDesc": "OTHERS",
+            "RelPartyCode": "SPOU",
+            "RelPartyCodeDesc": "SPOUSE",
+            "CustId": {
+              "CustId": "02585196",
+              "PersonName": {
+                "LastName": "",
+                "FirstName": "",
+                "MiddleName": "",
+                "Name": "JHARANA SINGH",
+                "TitlePrefix": "MRS."
+              }
+            },
+            "RelPartyContactInfo": {
+              "PhoneNum": {
+                "TelephoneNum": "+977(01)9843722513",
+                "FaxNum": "",
+                "TelexNum": ""
+              },
+              "EmailAddr": "",
+              "PostAddr": {
+                "Addr1": "MIRMIRE",
+                "Addr2": "MAHALAXMI 05",
+                "Addr3": "LALITPUR 03",
+                "City": "308",
+                "StateProv": "3",
+                "PostalCode": "977",
+                "Country": "NP",
+                "AddrType": "Mailing"
+              }
+            },
+            "RecDelFlg": "N"
+          }
+        ]
+      },
+      "SBAcctInq_CustomData": {
+        "custConstDesc": "INDIVIDUAL MALE"
+      }
+    }
+  },
+  "Errors": null
+}

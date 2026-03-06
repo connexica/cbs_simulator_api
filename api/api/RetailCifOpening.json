@@ -1,0 +1,16 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "RetCustAddResponse": {
+      "RetCustAddRs": {
+        "CustId": "10423473",
+        "Desc": "Retail Customer successfully created with CIFID 10423473",
+        "Entity": "Retail Customer",
+        "Service": "CIFRetailCustomerCreate",
+        "Status": "SUCCESS"
+      },
+      "RetCustAdd_CustomData": null
+    }
+  }
+}

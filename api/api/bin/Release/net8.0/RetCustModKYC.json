@@ -1,0 +1,16 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "RetCustModResponse": {
+      "RetCustModRs": {
+        "CustId": "02917330",
+        "Desc": "Retail Customer successfully updated with CIFID 02917330",
+        "Entity": "Retail Customer",
+        "Service": "CIFRetailCustomerUpdate",
+        "Status": "SUCCESS"
+      },
+      "RetCustMod_CustomData": null
+    }
+  }
+}

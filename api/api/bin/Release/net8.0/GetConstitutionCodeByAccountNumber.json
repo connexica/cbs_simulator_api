@@ -1,0 +1,12 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CODE": "INDIM",
+        "DESCRIPTION": "INDIVIDUAL MALE"
+      }
+    ]
+  }
+}

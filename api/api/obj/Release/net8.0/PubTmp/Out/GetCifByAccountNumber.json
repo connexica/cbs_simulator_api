@@ -1,0 +1,14 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CIF_ID": "02730899",
+        "FORACID": "00515217484",
+        "SCHM_TYPE": "CAA",
+        "ACCT_CLS_FLG": "N"
+      }
+    ]
+  }
+}

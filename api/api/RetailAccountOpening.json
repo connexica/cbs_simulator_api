@@ -1,0 +1,36 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "SBAcctAddResponse": {
+      "SBAcctAddRs": {
+        "SBAcctId": {
+          "AcctId": "55510262437",
+          "AcctType": {
+            "SchmCode": "",
+            "SchmType": ""
+          },
+          "AcctCurr": "",
+          "BankInfo": {
+            "BankId": "",
+            "Name": "",
+            "BranchId": "",
+            "BranchName": "",
+            "PostAddr": {
+              "Addr1": "",
+              "Addr2": "",
+              "Addr3": "",
+              "City": "",
+              "StateProv": "",
+              "PostalCode": "",
+              "Country": "",
+              "AddrType": ""
+            }
+          }
+        }
+      },
+      "SBAcctAdd_CustomData": null
+    }
+  },
+  "Errors": null
+}
