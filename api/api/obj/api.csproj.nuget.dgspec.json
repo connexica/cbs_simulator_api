@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\Others\\Ctx\\Dev\\api\\api\\api.csproj": {}
+    "D:\\Development\\Connexica\\cbs_simulator_api\\api\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\Development\\Others\\Ctx\\Dev\\api\\api\\api.csproj": {
+    "D:\\Development\\Connexica\\cbs_simulator_api\\api\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\Others\\Ctx\\Dev\\api\\api\\api.csproj",
+        "projectUniqueName": "D:\\Development\\Connexica\\cbs_simulator_api\\api\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\Development\\Others\\Ctx\\Dev\\api\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\dibya.suvedi\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\Others\\Ctx\\Dev\\api\\api\\obj\\",
+        "projectPath": "D:\\Development\\Connexica\\cbs_simulator_api\\api\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\DibyaMani\\.nuget\\packages\\",
+        "outputPath": "D:\\Development\\Connexica\\cbs_simulator_api\\api\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dibya.suvedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DibyaMani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -143,6 +143,12 @@ public class ConnectController : ControllerBase
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
         }
+        else if (string.Compare(req.FunctionName, "SignatureAdd", StringComparison.OrdinalIgnoreCase) == 0)
+        {
+            var json = System.IO.File.ReadAllText("SignatureAddResponse.json");
+            var data = JsonSerializer.Deserialize<object>(json);
+            return Ok(data);
+        }
         else
         {
             return NotFound($"Function '{req.FunctionName}' not found.");

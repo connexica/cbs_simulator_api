@@ -1,0 +1,18 @@
+{
+  "Code": "0",
+  "Message": "Operation Successful",
+  "Data": {
+    "SignatureAddResponse": {
+      "SignatureAddRs": {
+        "AcctId": "55510262437",
+        "AcctCode": "N",
+        "CustId": null,
+        "EmployeeIdent": null,
+        "BankCode": null,
+        "SigPowerNum": null,
+        "SigAddStatusCode": "true"
+      },
+      "SignatureAdd_CustomData": null
+    }
+  }
+}
