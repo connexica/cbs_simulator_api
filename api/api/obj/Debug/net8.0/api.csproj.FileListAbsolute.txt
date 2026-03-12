@@ -202,3 +202,4 @@ D:\Development\Connexica\cbs_simulator_api\api\api\obj\Debug\net8.0\api.pdb
 D:\Development\Connexica\cbs_simulator_api\api\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Development\Connexica\cbs_simulator_api\api\api\obj\Debug\net8.0\ref\api.dll
 D:\Development\Connexica\cbs_simulator_api\api\api\bin\Debug\net8.0\SignatureAddResponse.json
+D:\Development\Connexica\cbs_simulator_api\api\api\bin\Debug\net8.0\GetKycDetailByCifResponse.json

@@ -1,0 +1,24 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CIF_ID": "02029751",
+        "CUSTOMER_TYPE": "CORPORATE",
+        "CIF_NAME": "MONEY EXCHANGE CENTRE",
+        "PEPCONFIRMATION": "NO",
+        "AML_RISK_RATING": "HRISK",
+        "MOBILENO": "977015542501",
+        "EMAIL": null,
+        "REASON_FOR_HIGH_RISK": "BUSIN",
+        "SIS_CATEGORY": "MONEY CHANGER",
+        "CUSTOMERCATEGORY": "MONEY-CHANGER ",
+        "TAX_CATEGORY": "15%",
+        "SUBMITFORKYC": "Y",
+        "STAFF_PENDING": "Linked Entities",
+        "CUSTOMER_PENDING": "Email, Expected Business Turnover, Authorized Capital, Paid Up Capital"
+      }
+    ]
+  }
+}

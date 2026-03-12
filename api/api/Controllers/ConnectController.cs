@@ -149,6 +149,12 @@ public class ConnectController : ControllerBase
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
         }
+        else if (string.Compare(req.FunctionName, "GetKycDetailByCif", StringComparison.OrdinalIgnoreCase) == 0)
+        {
+            var json = System.IO.File.ReadAllText("GetKycDetailByCifResponse.json");
+            var data = JsonSerializer.Deserialize<object>(json);
+            return Ok(data);
+        }
         else
         {
             return NotFound($"Function '{req.FunctionName}' not found.");
