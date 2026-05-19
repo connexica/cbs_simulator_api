@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-    [Route("api/v3")]
+    [Route("enadocSBL/api/v3")]
     [ApiController]
     public class EnadocController : ControllerBase
     {

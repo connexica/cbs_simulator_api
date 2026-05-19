@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/v3/token": {
+    "/enadocSBL/api/v3/token": {
       "post": {
         "tags": [
           "Enadoc"
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/api/v3/documents": {
+    "/enadocSBL/api/v3/documents": {
       "post": {
         "tags": [
           "Enadoc"
