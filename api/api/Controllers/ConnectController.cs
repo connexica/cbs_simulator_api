@@ -155,6 +155,12 @@ public class ConnectController : ControllerBase
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
         }
+        else if (req.FunctionName == "GetNIDToken")
+        {
+            var json = System.IO.File.ReadAllText("GetNIDToken.json");
+            var data = JsonSerializer.Deserialize<object>(json);
+            return Ok(data);
+        }
         else
         {
             return NotFound($"Function '{req.FunctionName}' not found.");

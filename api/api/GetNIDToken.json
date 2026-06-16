@@ -1,0 +1,11 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "token": "mock-token"
+      }
+    ]
+  }
+}

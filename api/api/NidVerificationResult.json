@@ -1,0 +1,10 @@
+{
+  "error": false,
+  "message": "RESPONSE FROM NID",
+  "status": "HIT",
+  "data": {
+    "client_request_id": "MOCK-PROCESS-001",
+    "requested_at": "2026-06-16T10:00:00",
+    "responded_at": "2026-06-16T10:00:10"
+  }
+}
