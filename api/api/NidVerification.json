@@ -1,6 +1,6 @@
 {
   "error": false,
-  "message": "PROCESSING",
+  "message": "Verification initiated",
   "status": "PROCESSING",
   "data": {
     "client_request_id": "MOCK-PROCESS-001",

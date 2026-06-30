@@ -1,6 +1,6 @@
 {
   "error": false,
-  "message": "RESPONSE FROM NID",
+  "message": "Matched",
   "status": "HIT",
   "data": {
     "client_request_id": "MOCK-PROCESS-001",
