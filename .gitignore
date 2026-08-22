@@ -420,3 +420,4 @@ FodyWeavers.xsd
 *.msp
 /src/AccountOpening.Admin.Application/AppLogs
 /src/AccountOpening.Admin.Application/wwwroot/uploads
+/CLAUDE.md

@@ -1,0 +1,174 @@
+{
+  "_comment": "Simulator-only test scenarios for RetailAccountInquiry, keyed by 11-digit test Account Number. Looked up by ConnectController before falling back to the default RetailAccountInquiry.json. See TestScenarios.md.",
+
+  "99900000002": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000002" },
+          "CustId": {
+            "CustId": "88880002",
+            "PersonName": { "Name": "TEST CIF MISMATCH" }
+          }
+        }
+      }
+    }
+  },
+  "99900000003": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000003" },
+          "CustId": {
+            "CustId": "88880003",
+            "PersonName": { "Name": "TEST DORMANT ACCOUNT" }
+          }
+        }
+      }
+    }
+  },
+  "99900000004": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000004" },
+          "CustId": {
+            "CustId": "88880004",
+            "PersonName": { "Name": "TEST FREEZE STATUS PRESENT" }
+          }
+        }
+      }
+    }
+  },
+  "99900000005": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000005" },
+          "CustId": {
+            "CustId": "88880005",
+            "PersonName": { "Name": "TEST DEDICATED FREEZE" }
+          }
+        }
+      }
+    }
+  },
+  "99900000006": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000006" },
+          "CustId": {
+            "CustId": "88880006",
+            "PersonName": { "Name": "TEST SUBMIT FOR KYC N" }
+          }
+        }
+      }
+    }
+  },
+  "99900000007": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000007" },
+          "CustId": {
+            "CustId": "88880007",
+            "PersonName": { "Name": "TEST NON INDIVIDUAL" }
+          }
+        }
+      }
+    }
+  },
+  "99900000008": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000008" },
+          "CustId": {
+            "CustId": "88880008",
+            "PersonName": { "Name": "TEST CBS MOBILE MISSING" }
+          }
+        }
+      }
+    }
+  },
+  "99900000009": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000009" },
+          "CustId": {
+            "CustId": "88880009",
+            "PersonName": { "Name": "TEST CBS EMAIL MISSING" }
+          }
+        }
+      }
+    }
+  },
+  "99900000012": {
+    "Code": "9",
+    "Message": "Account not found",
+    "Data": null
+  },
+  "99900000013": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000013" },
+          "CustId": {
+            "CustId": "88880013",
+            "PersonName": { "Name": "TEST GET CIF FAILURE" }
+          }
+        }
+      }
+    }
+  },
+  "99900000014": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000014" },
+          "CustId": {
+            "CustId": "88880014",
+            "PersonName": { "Name": "TEST RETAIL CIF FAILURE" }
+          }
+        }
+      }
+    }
+  },
+  "99900000015": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "SBAcctInqResponse": {
+        "SBAcctInqRs": {
+          "SBAcctId": { "AcctId": "99900000015" },
+          "CustId": {
+            "CustId": "88880015",
+            "PersonName": { "Name": "TEST FREEZE INQUIRY FAILURE" }
+          }
+        }
+      }
+    }
+  }
+}

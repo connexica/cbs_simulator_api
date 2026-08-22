@@ -1,0 +1,35 @@
+{
+  "_comment": "Simulator-only test scenarios for AccountFreezeInquiry, keyed by 11-digit test Account Number. Looked up by ConnectController before falling back to the default AccountFreezeInquiry.json. See TestScenarios.md.",
+
+  "99900000005": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "FreezeAcctsInqResponse": {
+        "FreezeAcctsInqRs": {
+          "OutputRec": [
+            {
+              "FreezeCode": "T",
+              "FreezeReasonCode": "DMLI",
+              "FreezeRemarks": "Simulator test — dedicated freeze scenario",
+              "LastFreezeDate": "2025-11-21T00:00:00",
+              "PendTranCount": "0",
+              "PendClgIwdCount": "0",
+              "PendClgOwdCount": "0",
+              "PendSICount": "0"
+            }
+          ]
+        },
+        "FreezeAcctsInq_CustomData": {
+          "acctId": { "foracid": "99900000005", "solId": "SB709163" },
+          "cifId": "88880005"
+        }
+      }
+    }
+  },
+  "99900000015": {
+    "Code": "9",
+    "Message": "Unable to determine freeze status",
+    "Data": null
+  }
+}

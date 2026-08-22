@@ -1,0 +1,736 @@
+{
+  "_comment": "Simulator-only test scenarios for GetCifByAccountNumber, keyed by 11-digit test Account Number. Looked up by ConnectController before falling back to the default GetCifByAccountNumber.json. See TestScenarios.md. Entries below 90000000000 predate this pass (Individual Existing Customer verification, 2026-08-08); entries from 90000000001 up plus the stakeholder-sample rows were added 2026-08-17 (business-accurate mock test scenarios pass) — see TestScenarios.md for the full ID/customer/expected-result table.",
+
+  "99900000002": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88889902",
+          "FORACID": "99900000002",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000003": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880003",
+          "FORACID": "99900000003",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "DORMANT",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000004": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880004",
+          "FORACID": "99900000004",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": "Y"
+        }
+      ]
+    }
+  },
+  "99900000005": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880005",
+          "FORACID": "99900000005",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000006": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880006",
+          "FORACID": "99900000006",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000007": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880007",
+          "FORACID": "99900000007",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000008": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880008",
+          "FORACID": "99900000008",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000009": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880009",
+          "FORACID": "99900000009",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000013": {
+    "Code": "332",
+    "Message": "Details not found in the record",
+    "Data": { "QueryResult": [] }
+  },
+  "99900000014": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880014",
+          "FORACID": "99900000014",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "99900000015": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "88880015",
+          "FORACID": "99900000015",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+
+  "02620993040": {
+    "_stakeholder_sample": "A. CHANDRA KALA GHALE — dormant (account number corrected to 11-digit leading-zero form 2026-08-17)",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000001",
+          "FORACID": "02620993040",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "DORMANT",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "02215137835": {
+    "_stakeholder_sample": "B. CHAITRA MANI TIMSINA — dormant + freeze (account number corrected to 11-digit leading-zero form 2026-08-17)",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000002",
+          "FORACID": "02215137835",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "DORMANT",
+          "FREEZE_STATUS": "D"
+        }
+      ]
+    }
+  },
+  "55506709436": {
+    "_stakeholder_sample": "C. ARJUN KHANAL — active but frozen",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000003",
+          "FORACID": "55506709436",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": "D"
+        }
+      ]
+    }
+  },
+  "55508713567": {
+    "_stakeholder_sample": "D. THE INFINITY LOUNGE PRIVATE LIMITED — non-Individual",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000004",
+          "FORACID": "55508713567",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55502681901": {
+    "_stakeholder_sample": "E. RAJ KUMAR SHRESTHA — success baseline",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000005",
+          "FORACID": "55502681901",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55501785006": {
+    "_stakeholder_sample": "F. SANTOSH PUN — frozen",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000006",
+          "FORACID": "55501785006",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": "D"
+        }
+      ]
+    }
+  },
+  "01019534380": {
+    "_stakeholder_sample": "G. HIMANSU KUMAR SHAH — second success baseline. SUBMITFORKYC corrected to \"A\" 2026-08-17 per real UAT GetCifByAccountNumber evidence for this exact account (CIF_ID kept as the simulator's existing internal 70000007 — the real UAT CIF 03396913 was not otherwise requested to be adopted, and doing so would require an unrequested matching RetailCIFInquiry key change).",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "70000007",
+          "FORACID": "01019534380",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "A",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+
+  "90000000001": {
+    "_derived": "VALID_CAA",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000001",
+          "FORACID": "90000000001",
+          "SCHM_TYPE": "CAA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000002": {
+    "_derived": "VALID_SBA",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000002",
+          "FORACID": "90000000002",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000003": {
+    "_derived": "INVALID_TDA — SCHM_TYPE gate enforced: only CAA/SBA allowed, TDA is blocked with DiagnosticCode SCHEME_NOT_ALLOWED, message 'Please visit the branch for Account Opening.'",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000003",
+          "FORACID": "90000000003",
+          "SCHM_TYPE": "TDA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000004": {
+    "_derived": "INVALID_TUA — SCHM_TYPE gate enforced: only CAA/SBA allowed, TUA is blocked with DiagnosticCode SCHEME_NOT_ALLOWED, message 'Please visit the branch for Account Opening.'",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000004",
+          "FORACID": "90000000004",
+          "SCHM_TYPE": "TUA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000005": {
+    "_derived": "INVALID_ODA — SCHM_TYPE gate enforced: only CAA/SBA allowed, ODA is blocked with DiagnosticCode SCHEME_NOT_ALLOWED, message 'Please visit the branch for Account Opening.'",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000005",
+          "FORACID": "90000000005",
+          "SCHM_TYPE": "ODA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000006": {
+    "_derived": "INVALID_UNKNOWN_SCHEME — SCHM_TYPE gate enforced: only CAA/SBA allowed, unknown/blank schemes are blocked with DiagnosticCode SCHEME_NOT_ALLOWED, message 'Please visit the branch for Account Opening.'",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000006",
+          "FORACID": "90000000006",
+          "SCHM_TYPE": "XXX",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000007": {
+    "_derived": "SUBMIT_KYC_N",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000007",
+          "FORACID": "90000000007",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "N",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000008": {
+    "_derived": "DORMANT_ONLY",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000008",
+          "FORACID": "90000000008",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "DORMANT",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000009": {
+    "_derived": "FREEZE_ONLY",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000009",
+          "FORACID": "90000000009",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": "D"
+        }
+      ]
+    }
+  },
+  "90000000010": {
+    "_derived": "MOBILE_MISMATCH",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000010",
+          "FORACID": "90000000010",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000011": {
+    "_derived": "EMAIL_MISMATCH",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000011",
+          "FORACID": "90000000011",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000012": {
+    "_derived": "MOBILE_AND_EMAIL_MISMATCH",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000012",
+          "FORACID": "90000000012",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000013": {
+    "_derived": "MISSING_PREFERRED_MOBILE",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000013",
+          "FORACID": "90000000013",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000014": {
+    "_derived": "MISSING_PREFERRED_EMAIL",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000014",
+          "FORACID": "90000000014",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000015": {
+    "_derived": "NON_PREFERRED_PHONE_ONLY",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000015",
+          "FORACID": "90000000015",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000016": {
+    "_derived": "NON_PREFERRED_EMAIL_ONLY",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000016",
+          "FORACID": "90000000016",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000017": {
+    "_derived": "NON_PREFERRED_BEFORE_PREFERRED_MOBILE",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000017",
+          "FORACID": "90000000017",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000018": {
+    "_derived": "NON_PREFERRED_BEFORE_PREFERRED_EMAIL",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000018",
+          "FORACID": "90000000018",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000019": {
+    "_derived": "PHONENUM_VS_LOCALCODE",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000019",
+          "FORACID": "90000000019",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000020": {
+    "_derived": "EMAIL_CASE_INSENSITIVE_MATCH",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000020",
+          "FORACID": "90000000020",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000021": {
+    "_derived": "INVALID_NON_INDIVIDUAL",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000021",
+          "FORACID": "90000000021",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "90000000022": {
+    "_derived": "GETCIF_FAILURE — account not found at the GetCifByAccountNumber stage (never reaches RetailCIFInquiry)",
+    "Code": "332",
+    "Message": "Details not found in the record",
+    "Data": { "QueryResult": [] }
+  },
+  "90000000023": {
+    "_derived": "RETAILCIF_FAILURE — GetCif succeeds, RetailCIFInquiry for this CIF fails",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "80000023",
+          "FORACID": "90000000023",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+
+  "55509990001": {
+    "_derived": "GD-NATID-TEST-A (2026-08-18) — Existing Guardian search / no-NATID case. DocCode on the matching RetailCIFInquiry entry (CIF 19990001) does NOT contain NATID — National ID section/upload must SHOW and stay required.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990001",
+          "FORACID": "55509990001",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990002": {
+    "_derived": "GD-NATID-TEST-B (2026-08-18) — Existing Guardian search / with-NATID control case. DocCode on the matching RetailCIFInquiry entry (CIF 19990002) DOES contain NATID — National ID upload must be HIDDEN and not required.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990002",
+          "FORACID": "55509990002",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  }
+}

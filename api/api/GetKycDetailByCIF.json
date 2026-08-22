@@ -1,0 +1,26 @@
+{
+  "Code": "0",
+  "Message": "Success",
+  "Data": {
+    "QueryResult": [
+      {
+        "CIF_ID": "02375789",
+        "CUSTOMER_TYPE": "I",
+        "CIF_NAME": "SUPRIYA BUDHATHOKI",
+        "PEPCONFIRMATION": "NO",
+        "AML_RISK_RATING": "LRISK",
+        "MOBILENO": "9841234567",
+        "EMAIL": "supriya.budhathoki@example.com",
+        "REASON_FOR_HIGH_RISK": null,
+        "SIS_CATEGORY": "GEN",
+        "CUSTOMERCATEGORY": "IND",
+        "TAX_CATEGORY": "6PCT",
+        "SECTOR": null,
+        "SUBSECTOR": null,
+        "SUBMITFORKYC": "Y",
+        "STAFF_PENDING": null,
+        "CUSTOMER_PENDING": null
+      }
+    ]
+  }
+}

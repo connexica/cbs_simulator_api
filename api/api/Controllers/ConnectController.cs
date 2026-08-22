@@ -7,9 +7,79 @@ namespace api.Controllers;
 [ApiController]
 public class ConnectController : ControllerBase
 {
+    // Individual Existing Customer verification test scenarios (2026-08-08). Minimal, additive
+    // dispatch: for the 4 functions listed in TestScenarios.md, the incoming request's account
+    // number/CIF (decoded from req.Data — Base64(JSON), same encoding
+    // SignatureGeneratorExtension.EncodeObjectToBase64 already produces) is looked up in an optional
+    // "<FunctionName>.scenarios.json" file. If found, that scenario's response is returned instead of
+    // the default static file. If the file doesn't exist, is malformed, the key isn't found, or
+    // req.Data can't be decoded for any reason, behavior falls back exactly to the pre-existing
+    // static-file read — every other FunctionName branch below is completely untouched, and any
+    // account number not listed in a scenarios file behaves exactly as before this change.
+    private static readonly HashSet<string> ScenarioAwareFunctions = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "RetailAccountInquiry", "GetCifByAccountNumber", "RetailCIFInquiry", "AccountFreezeInquiry"
+    };
+
+    private static string? TryGetScenarioResponse(string functionName, string? base64Data)
+    {
+        try
+        {
+            var scenarioFile = $"{functionName}.scenarios.json";
+            if (!System.IO.File.Exists(scenarioFile) || string.IsNullOrWhiteSpace(base64Data)) return null;
+
+            var decodedJson = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
+            using var reqDoc = JsonDocument.Parse(decodedJson);
+
+            string? key = functionName switch
+            {
+                // RetailAccountInquiryRequestDto: SBAcctInqRequest.SBAcctInqRq.SBAcctId.AcctId
+                "RetailAccountInquiry" => reqDoc.RootElement
+                    .TryGetProperty("SBAcctInqRequest", out var a) && a.TryGetProperty("SBAcctInqRq", out var b)
+                    && b.TryGetProperty("SBAcctId", out var c) && c.TryGetProperty("AcctId", out var d)
+                    ? d.GetString() : null,
+                // GetCifByAccountNumberRequestDto: AccountNumber (flat)
+                "GetCifByAccountNumber" => reqDoc.RootElement.TryGetProperty("AccountNumber", out var e)
+                    ? e.GetString() : null,
+                // RetCustInqRequestDto: RetCustInqRequest.RetCustInqRq.CustId (this is the CIF)
+                "RetailCIFInquiry" => reqDoc.RootElement
+                    .TryGetProperty("RetCustInqRequest", out var f) && f.TryGetProperty("RetCustInqRq", out var g)
+                    && g.TryGetProperty("CustId", out var h) ? h.GetString() : null,
+                // FreezeAcctsInqRequestDto: FreezeAcctsInqRequest.FreezeAcctsInqRq.AcctId
+                "AccountFreezeInquiry" => reqDoc.RootElement
+                    .TryGetProperty("FreezeAcctsInqRequest", out var i) && i.TryGetProperty("FreezeAcctsInqRq", out var j)
+                    && j.TryGetProperty("AcctId", out var k) ? k.GetString() : null,
+                _ => null
+            };
+            if (string.IsNullOrWhiteSpace(key)) return null;
+
+            var scenarios = System.IO.File.ReadAllText(scenarioFile);
+            using var scenarioDoc = JsonDocument.Parse(scenarios);
+            if (!scenarioDoc.RootElement.TryGetProperty(key, out var match)) return null;
+
+            return match.GetRawText();
+        }
+        catch
+        {
+            // Any decode/parse failure silently falls back to the existing default-file behavior —
+            // never breaks an existing, already-working test flow.
+            return null;
+        }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] RequestDto req)
     {
+        if (!string.IsNullOrWhiteSpace(req.FunctionName) && ScenarioAwareFunctions.Contains(req.FunctionName))
+        {
+            var scenarioJson = TryGetScenarioResponse(req.FunctionName, req.Data);
+            if (scenarioJson != null)
+            {
+                var scenarioData = JsonSerializer.Deserialize<object>(scenarioJson);
+                return Ok(scenarioData);
+            }
+        }
+
         if (req.FunctionName == "AccountInquiryCAA")
         {
             var json = System.IO.File.ReadAllText("AccountInquiryCAA.json");
@@ -37,6 +107,16 @@ public class ConnectController : ControllerBase
         else if (req.FunctionName == "RetailAccountInquiry")
         {
             var json = System.IO.File.ReadAllText("RetailAccountInquiry.json");
+            var data = JsonSerializer.Deserialize<object>(json);
+            return Ok(data);
+        }
+        // Added for Individual Admin Guardian Details "Verify" classification fetch
+        // (AccountFunctionService.GetKycDetailByCIFAsync, FunctionName "GetKycDetailByCif" —
+        // case mirrors the exact string that method sends). No simulator endpoint existed for this
+        // function before; Admin was calling a function name the simulator didn't dispatch on.
+        else if (string.Compare(req.FunctionName, "GetKycDetailByCif", StringComparison.OrdinalIgnoreCase) == 0)
+        {
+            var json = System.IO.File.ReadAllText("GetKycDetailByCIF.json");
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
         }

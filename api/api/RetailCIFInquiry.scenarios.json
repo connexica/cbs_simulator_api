@@ -1,0 +1,1603 @@
+{
+  "_comment": "Simulator-only test scenarios for RetailCIFInquiry, keyed by test CIF (as returned by the matching GetCifByAccountNumber scenario entries). Looked up by ConnectController before falling back to the default RetailCIFInquiry.json. See TestScenarios.md. Entries below 80000001 predate this pass (2026-08-08); PrefFlag was added to those entries' PhoneEmailInfo records on 2026-08-17 (they previously had none — the current application code requires PrefFlag=Y on the matched record, so these would otherwise no longer resolve a mobile/email). CIF 70000001-70000007 (stakeholder samples) and 80000001-80000023 (derived edge cases) were added 2026-08-17.",
+
+  "88880005": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880005",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "DEDICATED FREEZE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000005",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "testscenario5@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000005"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "88880006": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880006",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "SUBMIT FOR KYC N",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "N",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000006",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "testscenario6@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000006"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "88880007": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880007",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "NON INDIVIDUAL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "NONIND",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000007",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "testscenario7@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000007"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "88880008": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880008",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "MOBILE MISSING",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "testscenario8@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000008"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "88880009": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880009",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "EMAIL MISSING",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000009",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000009"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "88880014": {
+    "Code": "9",
+    "Message": "Customer not found",
+    "Data": null
+  },
+  "88880015": {
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "88880015",
+            "FirstName": "TEST",
+            "MiddleName": null,
+            "LastName": "FREEZE INQUIRY FAILURE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000015",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "testscenario15@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              {
+                "DocCode": "PAN",
+                "RefNum": "000000015"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+
+  "70000001": {
+    "_stakeholder_sample": "A. CHANDRA KALA GHALE — blocked earlier at GetCif (DORMANT); included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000001",
+            "FirstName": "CHANDRA",
+            "MiddleName": "KALA",
+            "LastName": "GHALE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MS.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9864996127",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000002": {
+    "_stakeholder_sample": "B. CHAITRA MANI TIMSINA — blocked earlier at GetCif (DORMANT+FREEZE); included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000002",
+            "FirstName": "CHAITRA",
+            "MiddleName": "MANI",
+            "LastName": "TIMSINA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9803455872",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000003": {
+    "_stakeholder_sample": "C. ARJUN KHANAL — blocked earlier at GetCif (ACTIVE but FREEZE_STATUS=D); included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000003",
+            "FirstName": "ARJUN",
+            "MiddleName": null,
+            "LastName": "KHANAL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9767228495",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "KHANALARJUN50@GMAIL.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000004": {
+    "_stakeholder_sample": "D. THE INFINITY LOUNGE PRIVATE LIMITED — reaches RetailCIFInquiry (GetCif is eligible); blocked HERE because ConstitutionCode is not Individual (NONIND, the simulator's existing known non-Individual value)",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000004",
+            "FirstName": "THE INFINITY LOUNGE",
+            "MiddleName": null,
+            "LastName": "PRIVATE LIMITED",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "NONIND",
+            "submitForKYC": "Y",
+            "SalutationCode": "MS.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9861036238",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "CLUBINFINITY61@GMAIL.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000005": {
+    "_stakeholder_sample": "E. RAJ KUMAR SHRESTHA — SUCCESS baseline (exact PhoneEmailInfo shape per stakeholder-supplied CBS sample)",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000005",
+            "FirstName": "RAJ",
+            "MiddleName": "KUMAR",
+            "LastName": "SHRESTHA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "EmailInfo": "",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNum": "+9779843273719",
+                "PhoneNumCountryCode": "977",
+                "PhoneNumLocalCode": "9843273719",
+                "PhoneOrEmail": "PHONE",
+                "PrefFlag": "Y"
+              },
+              {
+                "EmailInfo": "RAJKUMARSHRESTHA00011@GMAIL.COM",
+                "PhoneEmailType": "COMMEML",
+                "PhoneNum": "",
+                "PhoneNumCountryCode": "",
+                "PhoneNumLocalCode": "",
+                "PhoneOrEmail": "EMAIL",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000006": {
+    "_stakeholder_sample": "F. SANTOSH PUN — blocked earlier at GetCif (ACTIVE but FREEZE_STATUS=D); included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000006",
+            "FirstName": "SANTOSH",
+            "MiddleName": null,
+            "LastName": "PUN",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9763870565",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "I.SANTOSHPM@GMAIL.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "70000007": {
+    "_stakeholder_sample": "G. HIMANSU KUMAR SHAH — second SUCCESS baseline. submitForKYC corrected to \"A\" and email corrected to HIMANSHUSAH25@GMAIL.COM (was HIMANSHUSHAH25@GMAIL.COM, a spreadsheet typo) 2026-08-17 per real UAT RetailCIFInquiry evidence for this exact account (real UAT CustId 03396913 — CIF_ID kept as the simulator's existing internal 70000007, not otherwise requested to be renamed).",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "70000007",
+            "FirstName": "HIMANSU",
+            "MiddleName": "KUMAR",
+            "LastName": "SHAH",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "A",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9810041180",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "HIMANSHUSAH25@GMAIL.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+
+  "80000001": {
+    "_derived": "VALID_CAA — SUCCESS",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000001",
+            "FirstName": "VALID",
+            "MiddleName": null,
+            "LastName": "CAA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000101",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "valid.caa@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000002": {
+    "_derived": "VALID_SBA — SUCCESS",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000002",
+            "FirstName": "VALID",
+            "MiddleName": null,
+            "LastName": "SBA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000102",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "valid.sba@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000003": {
+    "_derived": "INVALID_TDA — blocked earlier at GetCif (SCHM_TYPE=TDA is not CAA/SBA, DiagnosticCode SCHEME_NOT_ALLOWED); included here for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000003",
+            "FirstName": "INVALID",
+            "MiddleName": null,
+            "LastName": "TDA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000103",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "invalid.tda@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000004": {
+    "_derived": "INVALID_TUA — blocked earlier at GetCif (SCHM_TYPE=TUA is not CAA/SBA, DiagnosticCode SCHEME_NOT_ALLOWED); included here for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000004",
+            "FirstName": "INVALID",
+            "MiddleName": null,
+            "LastName": "TUA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000104",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "invalid.tua@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000005": {
+    "_derived": "INVALID_ODA — blocked earlier at GetCif (SCHM_TYPE=ODA is not CAA/SBA, DiagnosticCode SCHEME_NOT_ALLOWED); included here for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000005",
+            "FirstName": "INVALID",
+            "MiddleName": null,
+            "LastName": "ODA",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000105",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "invalid.oda@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000006": {
+    "_derived": "INVALID_UNKNOWN_SCHEME — blocked earlier at GetCif (SCHM_TYPE=XXX is not CAA/SBA, DiagnosticCode SCHEME_NOT_ALLOWED); included here for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000006",
+            "FirstName": "INVALID",
+            "MiddleName": null,
+            "LastName": "UNKNOWN SCHEME",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000106",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "invalid.scheme@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000007": {
+    "_derived": "SUBMIT_KYC_N — BLOCK",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000007",
+            "FirstName": "SUBMIT",
+            "MiddleName": null,
+            "LastName": "KYC N",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "N",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000107",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "submit.kycn@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000008": {
+    "_derived": "DORMANT_ONLY — blocked earlier at GetCif; included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000008",
+            "FirstName": "DORMANT",
+            "MiddleName": null,
+            "LastName": "ONLY",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000108",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "dormant.only@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000009": {
+    "_derived": "FREEZE_ONLY — blocked earlier at GetCif; included for account/CIF consistency only",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000009",
+            "FirstName": "FREEZE",
+            "MiddleName": null,
+            "LastName": "ONLY",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000109",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "freeze.only@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000010": {
+    "_derived": "MOBILE_MISMATCH — CBS preferred mobile is 9800000110; typing anything else must BLOCK with mismatch",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000010",
+            "FirstName": "MOBILE",
+            "MiddleName": null,
+            "LastName": "MISMATCH",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000110",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "mobile.mismatch@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000011": {
+    "_derived": "EMAIL_MISMATCH — CBS preferred email is email.mismatch@example.com; typing anything else must BLOCK with mismatch",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000011",
+            "FirstName": "EMAIL",
+            "MiddleName": null,
+            "LastName": "MISMATCH",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000111",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "email.mismatch@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000012": {
+    "_derived": "MOBILE_AND_EMAIL_MISMATCH — CBS mobile 9800000112 / email both.mismatch@example.com; type different values for both",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000012",
+            "FirstName": "BOTH",
+            "MiddleName": null,
+            "LastName": "MISMATCH",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000112",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "both.mismatch@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000013": {
+    "_derived": "MISSING_PREFERRED_MOBILE — no PHONE/CELLPH/PrefFlag=Y record at all (email preferred present) — contact-update message expected",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000013",
+            "FirstName": "MISSING",
+            "MiddleName": null,
+            "LastName": "PREFERRED MOBILE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "missing.mobile@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000014": {
+    "_derived": "MISSING_PREFERRED_EMAIL — no EMAIL/PrefFlag=Y record at all (mobile preferred present) — contact-update message expected",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000014",
+            "FirstName": "MISSING",
+            "MiddleName": null,
+            "LastName": "PREFERRED EMAIL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000114",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000015": {
+    "_derived": "NON_PREFERRED_PHONE_ONLY — the only PHONE/CELLPH record has PrefFlag=N (no Y record exists) — contact-update message expected",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000015",
+            "FirstName": "NON PREFERRED",
+            "MiddleName": null,
+            "LastName": "PHONE ONLY",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000115",
+                "PrefFlag": "N"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "nonpref.phone@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000016": {
+    "_derived": "NON_PREFERRED_EMAIL_ONLY — the only EMAIL record has PrefFlag=N (no Y record exists) — contact-update message expected",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000016",
+            "FirstName": "NON PREFERRED",
+            "MiddleName": null,
+            "LastName": "EMAIL ONLY",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000116",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "nonpref.email@example.com",
+                "PrefFlag": "N"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000017": {
+    "_derived": "NON_PREFERRED_BEFORE_PREFERRED_MOBILE — a non-preferred CELLPH record appears FIRST in the array, the true preferred one SECOND — proves selection is not order-dependent. SUCCESS expected when typing the SECOND (preferred, 9800000217) number.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000017",
+            "FirstName": "NON PREFERRED BEFORE",
+            "MiddleName": null,
+            "LastName": "PREFERRED MOBILE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000117",
+                "PrefFlag": "N"
+              },
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000217",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "order.mobile@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000018": {
+    "_derived": "NON_PREFERRED_BEFORE_PREFERRED_EMAIL — a non-preferred EMAIL record appears FIRST, the true preferred one SECOND. SUCCESS expected when typing the SECOND (preferred) address.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000018",
+            "FirstName": "NON PREFERRED BEFORE",
+            "MiddleName": null,
+            "LastName": "PREFERRED EMAIL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000118",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "old.nonpreferred@example.com",
+                "PrefFlag": "N"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "current.preferred@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000019": {
+    "_derived": "PHONENUM_VS_LOCALCODE — PhoneNum carries the full +977-prefixed number (deliberately not usable as-is) while PhoneNumLocalCode carries the correct 10-digit local value the application must actually use. SUCCESS expected when typing 9800000119.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000019",
+            "FirstName": "PHONENUM VS",
+            "MiddleName": null,
+            "LastName": "LOCALCODE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PrefFlag": "Y",
+                "PhoneNum": "+9779800000119",
+                "PhoneNumCountryCode": "977",
+                "PhoneNumLocalCode": "9800000119"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "phonenum.test@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000020": {
+    "_derived": "EMAIL_CASE_INSENSITIVE_MATCH — CBS stores the email fully uppercase; SUCCESS expected when typing it in lowercase (or any case).",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000020",
+            "FirstName": "EMAIL CASE",
+            "MiddleName": null,
+            "LastName": "INSENSITIVE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000120",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "CASE.TEST@EXAMPLE.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000021": {
+    "_derived": "INVALID_NON_INDIVIDUAL — GetCif eligible, blocked HERE on ConstitutionCode=NONIND",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "80000021",
+            "FirstName": "INVALID",
+            "MiddleName": null,
+            "LastName": "NON INDIVIDUAL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "NONIND",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000121",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "nonindividual@example.com",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": []
+          }
+        }
+      }
+    }
+  },
+  "80000023": {
+    "_derived": "RETAILCIF_FAILURE — GetCif succeeds; RetailCIFInquiry itself fails here",
+    "Code": "9",
+    "Message": "Customer not found",
+    "Data": null
+  },
+
+  "19990001": {
+    "_derived": "GD-NATID-TEST-A (2026-08-18) — Existing Guardian search / no-NATID case (account 55509990001). EntityDocDtls deliberately has NO NATID-containing DocCode (BIRTHCERT/PASSPORT only) — Guardian's National ID section/upload must SHOW and stay required. Town uses the exact same spelling already proven elsewhere in this simulator (CorporateCifInquiry_old.json) rather than a guessed/corrected one, to maximize the chance it matches real Municipality static data.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990001",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771361",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              { "DocCode": "BIRTHCERT" },
+              { "DocCode": "PASSPORT" }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "19990002": {
+    "_derived": "GD-NATID-TEST-B (2026-08-18) — Existing Guardian search / with-NATID control case (account 55509990002). EntityDocDtls DOES include a NATID DocCode — Guardian's National ID upload must be HIDDEN and not required (NID Number/District/Date stay visible per the approved rule).",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990002",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER TWO",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771362",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR2@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [
+              { "DocCode": "BIRTHCERT" },
+              { "DocCode": "NATID" },
+              { "DocCode": "PASSPORT" }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
