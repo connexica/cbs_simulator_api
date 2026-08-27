@@ -1526,10 +1526,6 @@
                 "PrefFlag": "Y"
               }
             ],
-            "EntityDocDtls": [
-              { "DocCode": "BIRTHCERT" },
-              { "DocCode": "PASSPORT" }
-            ],
             "RetCustAddrInfo": [
               {
                 "AddrCategory": "Mailing",
@@ -1539,13 +1535,17 @@
                 "Town": "KATHMANDU METROPOLITIAN CITY"
               }
             ]
-          }
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            { "DocCode": "PASSPORT" }
+          ]
         }
       }
     }
   },
   "19990002": {
-    "_derived": "GD-NATID-TEST-B (2026-08-18) — Existing Guardian search / with-NATID control case (account 55509990002). EntityDocDtls DOES include a NATID DocCode — Guardian's National ID upload must be HIDDEN and not required (NID Number/District/Date stay visible per the approved rule).",
+    "_derived": "GD-NATID-TEST-B / MOCK A — COMPLETE NID (2026-08-26, extended) — Existing Guardian search / with-NATID control case (account 55509990002). EntityDocDtls DOES include a NATID DocCode — Guardian's National ID upload must be HIDDEN and not required (NID Number/District/Date stay visible per the approved rule). RefNum/PlaceOfIssue/DocIssueDt added (2026-08-26): the original entry only ever exercised the has-NATID boolean branch — RefNum/PlaceOfIssue/DocIssueDt were absent, so the actual field-population/text_two-mapping code path was never reachable through this scenario. PlaceOfIssue uses '306' — confirmed live against the current restored CAO-UATDB (tbl_static_data type='DISTRICT', text='KATHMANDU', text_two='306') that Issue District's text_two column is a numeric CBS district CODE, not the district NAME — matches the already-established GetDistrictIdByCodeAsyc(primaryAddr.CityCode) precedent used for address resolution, not a new convention.",
     "Code": "0",
     "Message": "Operation Successful",
     "Data": {
@@ -1581,10 +1581,66 @@
                 "PrefFlag": "Y"
               }
             ],
-            "EntityDocDtls": [
-              { "DocCode": "BIRTHCERT" },
-              { "DocCode": "NATID" },
-              { "DocCode": "PASSPORT" }
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "NATID",
+              "RefNum": "1234567890",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2018-05-15T00:00:00"
+            },
+            { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990003": {
+    "_derived": "MOCK B — DIFFERENT DISTRICT (2026-08-26) — account 55509990003. Same shape as Mock A but PlaceOfIssue='207' (tbl_static_data type='DISTRICT', text='BARA', text_two='207', confirmed live against current CAO-UATDB). Purpose: prove the PlaceOfIssue->text_two mapping is genuinely dynamic, not hard-coded to Kathmandu.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990003",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER THREE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771363",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR3@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
             ],
             "RetCustAddrInfo": [
               {
@@ -1595,7 +1651,258 @@
                 "Town": "KATHMANDU METROPOLITIAN CITY"
               }
             ]
-          }
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "NATID",
+              "RefNum": "2234567890",
+              "PlaceOfIssue": "207",
+              "DocIssueDt": "2019-02-10T00:00:00"
+            },
+            { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990004": {
+    "_derived": "MOCK C — UNMAPPABLE PLACE (2026-08-26) — account 55509990004. PlaceOfIssue='TEST UNKNOWN DISTRICT' — deliberately not numeric, guaranteed to never match any tbl_static_data DISTRICT text_two (all confirmed numeric, e.g. '306'/'207'). Purpose: prove no random/fuzzy-matched district is ever selected — Issue District must remain unselected (or keep the DB value if one already exists) when the mapping genuinely has no match.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990004",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER FOUR",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771364",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR4@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "NATID",
+              "RefNum": "3234567890",
+              "PlaceOfIssue": "TEST UNKNOWN DISTRICT",
+              "DocIssueDt": "2017-11-20T00:00:00"
+            },
+            { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990005": {
+    "_derived": "MOCK D — PARTIAL CBS (2026-08-26) — account 55509990005. NID Number + PlaceOfIssue present, DocIssueDt deliberately OMITTED. Purpose: prove field-level CBS fallback — a DB row with Number/District saved but Issue Date missing should have ONLY the missing date field filled from CBS, per DB-first field-by-field rule.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990005",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER FIVE",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771365",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR5@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "NATID",
+              "RefNum": "4234567890",
+              "PlaceOfIssue": "306"
+            },
+            { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990006": {
+    "_derived": "MOCK E — NO NID DATA (2026-08-26) — account 55509990006. NATID DocCode present (Guardian_Has_Cbs_NatId_Document = true, so the upload control still correctly hides) but RefNum/PlaceOfIssue/DocIssueDt all absent. Purpose: prove the system does not fabricate/overwrite DB data when CBS confirms a NATID exists but returns no actual field values — existing DB values (if any) must be left exactly as they were.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990006",
+            "FirstName": "TEST",
+            "MiddleName": "MINOR",
+            "LastName": "CUSTOMER SIX",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2015-08-26T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771366",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTMINOR6@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            { "DocCode": "NATID" },
+            { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990007": {
+    "_derived": "MOCK G — ADULT GUARDIAN, POSITIVE CASE (2026-08-26). See matching GetCifByAccountNumber.scenarios.json entry (account 55509990007) for why this was needed: every prior GD-NATID Mock (19990001-19990006) reused the original template's BirthDt='2015-08-26', a deliberately-MINOR customer, so all of them fail the >=18 Guardian check by design — that check is correct and was left untouched. This is a genuinely separate, isolated adult record. BirthDt='1990-05-15' (age 36 as of 2026-08-26, confirmed >=18). PlaceOfIssue='306' confirmed live against current CAO-UATDB (tbl_static_data type='DISTRICT', text='KATHMANDU', text_two='306', value=28) before use, not assumed.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990007",
+            "FirstName": "TEST",
+            "MiddleName": "ADULT",
+            "LastName": "GUARDIAN",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-05-15T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841771367",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TESTADULT7@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "CityCode": "306"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "NATID",
+              "RefNum": "5234567890",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2012-06-10T00:00:00"
+            },
+            { "DocCode": "PASSPORT" }
+          ]
         }
       }
     }

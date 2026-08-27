@@ -716,7 +716,7 @@
     }
   },
   "55509990002": {
-    "_derived": "GD-NATID-TEST-B (2026-08-18) — Existing Guardian search / with-NATID control case. DocCode on the matching RetailCIFInquiry entry (CIF 19990002) DOES contain NATID — National ID upload must be HIDDEN and not required.",
+    "_derived": "GD-NATID-TEST-B / MOCK A — COMPLETE NID (2026-08-18, extended 2026-08-26) — Existing Guardian search / with-NATID control case. DocCode on the matching RetailCIFInquiry entry (CIF 19990002) DOES contain NATID, now with RefNum/PlaceOfIssue='306' (KATHMANDU)/DocIssueDt — National ID upload must be HIDDEN and not required, and Number/District/Date must populate.",
     "Code": "0",
     "Message": "Success",
     "Data": {
@@ -724,6 +724,96 @@
         {
           "CIF_ID": "19990002",
           "FORACID": "55509990002",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990003": {
+    "_derived": "MOCK B — DIFFERENT DISTRICT (2026-08-26). CIF 19990003, PlaceOfIssue='207' (BARA).",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990003",
+          "FORACID": "55509990003",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990004": {
+    "_derived": "MOCK C — UNMAPPABLE PLACE (2026-08-26). CIF 19990004, PlaceOfIssue='TEST UNKNOWN DISTRICT' (no text_two match).",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990004",
+          "FORACID": "55509990004",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990005": {
+    "_derived": "MOCK D — PARTIAL CBS (2026-08-26). CIF 19990005, NID Number + PlaceOfIssue only, no DocIssueDt.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990005",
+          "FORACID": "55509990005",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990006": {
+    "_derived": "MOCK E — NO NID DATA (2026-08-26). CIF 19990006, NATID DocCode present but RefNum/PlaceOfIssue/DocIssueDt all absent.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990006",
+          "FORACID": "55509990006",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990007": {
+    "_derived": "MOCK G — ADULT GUARDIAN, POSITIVE CASE (2026-08-26). Bug found: Mocks A-E above (19990001-19990006) all reused the original GD-NATID-TEST template's BirthDt='2015-08-26' (a deliberately-MINOR customer, per the MiddleName='MINOR' on that same record) — every one of them fails Search Guardian's >=18 check by design, which is why account 55509990006 kept returning 'Guardian must be at least 18 years old.' This is a genuinely separate, isolated adult-DOB scenario (CIF 19990007) so the existing minor scenarios stay intact as the required negative test case. BirthDt='1990-05-15' confirmed >=18 as of any current date this decade.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990007",
+          "FORACID": "55509990007",
           "SCHM_TYPE": "SBA",
           "ACCT_CLS_FLG": "N",
           "SUBMITFORKYC": "Y",
