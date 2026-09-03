@@ -1,5 +1,5 @@
 {
-  "_comment": "Simulator-only test scenarios for RetailCIFInquiry, keyed by test CIF (as returned by the matching GetCifByAccountNumber scenario entries). Looked up by ConnectController before falling back to the default RetailCIFInquiry.json. See TestScenarios.md. Entries below 80000001 predate this pass (2026-08-08); PrefFlag was added to those entries' PhoneEmailInfo records on 2026-08-17 (they previously had none — the current application code requires PrefFlag=Y on the matched record, so these would otherwise no longer resolve a mobile/email). CIF 70000001-70000007 (stakeholder samples) and 80000001-80000023 (derived edge cases) were added 2026-08-17.",
+  "_comment": "Simulator-only test scenarios for RetailCIFInquiry, keyed by test CIF (as returned by the matching GetCifByAccountNumber scenario entries). Looked up by ConnectController before falling back to the default RetailCIFInquiry.json. See TestScenarios.md. Entries below 80000001 predate this pass (2026-08-08); PrefFlag was added to those entries' PhoneEmailInfo records on 2026-08-17 (they previously had none — the current application code requires PrefFlag=Y on the matched record, so these would otherwise no longer resolve a mobile/email). CIF 70000001-70000007 (stakeholder samples) and 80000001-80000023 (derived edge cases) were added 2026-08-17. 2026-09-03: the 6 Guardian mocks 19990001-19990006 had a RetCustAddrInfo shape identical to Mock G (19990007) EXCEPT for PrefFormat/CountryCode/StateCode/CityCode — since PersonalInformation.cshtml.cs's OnPostCheckGuardianAccountDetail only resolves Municipality/Ward Number when PrefFormat=='STRUCTURED_FORMAT' (Country/District resolve unconditionally from CountryCode/CityCode, which these 6 also lacked), only Mock G actually exercised the full address cascade before this fix — the other 6 silently left Municipality/Ward (and, via the missing CityCode, District/Country) blank regardless of any Search Guardian mapping code. Added the same already-proven values Mock G already used (STRUCTURED_FORMAT / NP / 3 / 306), purely additive — each mock's own deliberate NATID/EntityDocDtls test gap (no-NATID on 19990001, unmappable PlaceOfIssue on 19990004, missing DocIssueDt on 19990005, missing all NATID fields on 19990006) is untouched.",
 
   "88880005": {
     "Code": "0",
@@ -1532,7 +1532,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1587,7 +1591,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1648,7 +1656,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1661,6 +1673,463 @@
               "DocIssueDt": "2019-02-10T00:00:00"
             },
             { "DocCode": "PASSPORT" }
+          ]
+        }
+      }
+    }
+  },
+  "19990111": {
+    "_derived": "IDENTITY-UAT-CUSTOMER (2026-08-27, extended same day with BRCD) — dedicated Existing Customer for full Individual Customer Portal Identity Verification CBS-mapping UAT (account 55509990111). Mobile/Email match the values quoted for Existing Customer verification. EntityDocDtls carries one entry per supported document type (NATID/CITZ/PP/PAN/VOTID/BRCD) with RefNum/PlaceOfIssue/DocIssueDt/CountryOfIssue populated, so National ID/Citizenship/Passport/PAN/Voter ID/Minor Birth Registration all map on Identity Verification and their matching document uploads become optional. PlaceOfIssue='306' reuses the same confirmed-live KATHMANDU text_two code the 19990002/19990003 entries above already proved resolves correctly (tbl_static_data type='DISTRICT', text='KATHMANDU', text_two='306') — not a new/guessed code. CountryOfIssue='NP' for Passport so the existing Nepal/non-Nepal Passport District rule applies (District IS expected to resolve for this customer). BRCD's RefNum/PlaceOfIssue(405)/DocIssueDt/CountryOfIssue(NP) values match the exact real CBS sample supplied for this fix — this customer's own IsMinor='N' does not gate BRCD mapping (that's driven by the APPLICATION's own account_holder_type-derived Is_Minor, not this field), so BRCD is exercised by linking this same CIF to a Minor-type test application.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990111",
+            "FirstName": "IDENTITY",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-05-15T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111111",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "IDENTITYUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "NATID",
+              "RefNum": "9876543210",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2020-05-15T00:00:00"
+            },
+            {
+              "DocCode": "CITZ",
+              "RefNum": "111-222-33344",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2010-03-10T00:00:00"
+            },
+            {
+              "DocCode": "PP",
+              "RefNum": "PA9990111",
+              "CountryOfIssue": "NP",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2021-01-20T00:00:00"
+            },
+            {
+              "DocCode": "PAN",
+              "RefNum": "199901119",
+              "CountryOfIssue": "NP",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2015-07-01T00:00:00"
+            },
+            {
+              "DocCode": "VOTID",
+              "RefNum": "VOT19990111",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2012-11-05T00:00:00"
+            },
+            {
+              "DocCode": "BRCD",
+              "RefNum": "2075122602394",
+              "PlaceOfIssue": "405",
+              "DocIssueDt": "2019-04-11T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990121": {
+    "_derived": "IDENTITY-UAT-NID-ONLY (2026-08-28) — account 55509990121. National ID DocCode=NATID only, so document-optionality is provably per-section (not a single global CBS flag).",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990121",
+            "FirstName": "NATID",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-01-01T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111121",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "NATIDUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "NATID",
+              "RefNum": "9876543210",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2020-05-15T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990122": {
+    "_derived": "IDENTITY-UAT-CITIZENSHIP-ONLY (2026-08-28) — account 55509990122. Citizenship DocCode=CITZ only.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990122",
+            "FirstName": "CITZ",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1985-06-15T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111122",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "CITZUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "CITZ",
+              "RefNum": "CITZUAT0122",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2018-06-15T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990123": {
+    "_derived": "IDENTITY-UAT-PASSPORT-ONLY (2026-08-28) — account 55509990123. Passport DocCode=PP only, deliberately no expiry field (RetailCIFInquiry's EntityDocDtls has no expiry property at all — confirmed against RetCustInqResponse.cs) — Expiry AD/BS must stay manual/required.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990123",
+            "FirstName": "PASSPORT",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1992-03-20T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111123",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "PASSPORTUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "PP",
+              "RefNum": "PAUAT0123",
+              "CountryOfIssue": "NP",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2021-01-20T00:00:00"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990124": {
+    "_derived": "IDENTITY-UAT-VOTERID-ONLY (2026-08-28) — account 55509990124. Voter ID DocCode=VOTID only.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990124",
+            "FirstName": "VOTERID",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1988-11-02T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111124",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "VOTERUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "VOTID",
+              "RefNum": "VOTERUAT0124",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2019-08-12T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990125": {
+    "_derived": "IDENTITY-UAT-PAN-ONLY (2026-08-28) — account 55509990125. PAN DocCode=PAN only.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990125",
+            "FirstName": "PAN",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1991-09-09T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111125",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "PANUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "PAN",
+              "RefNum": "601234567",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2020-03-10T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990126": {
+    "_derived": "IDENTITY-UAT-BRCD-MINOR (2026-08-28) — account 55509990126. Birth Registration DocCode=BRCD only, using the exact real CBS sample values supplied for this fix. The matching test application must be created as Minor (Is_Minor is application-derived, not read from this record's own IsMinor field) for BRCD mapping/optionality to apply.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990126",
+            "FirstName": "BRCD",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "2016-04-11T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111126",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "BRCDUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "BRCD",
+              "RefNum": "2075122602394",
+              "PlaceOfIssue": "405",
+              "DocIssueDt": "2019-04-11T00:00:00",
+              "CountryOfIssue": "NP"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19990127": {
+    "_derived": "IDENTITY-UAT-VISA (2026-08-28) — account 55509990127. Passport (CountryOfIssue=IN, confirmed live tbl_static_data COUNTRY text_two='IN'->INDIA) so the existing non-Nepal-Passport Visa-applicability rule evaluates true, plus VISA. No fabricated Visa expiry field (RetailCIFInquiry provides none) — Visa Expiry AD/BS stay manual/required.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19990127",
+            "FirstName": "VISA",
+            "MiddleName": "UAT",
+            "LastName": "CUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1993-07-07T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9841111127",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "VISAUAT@SBL.COM.NP",
+                "PrefFlag": "Y"
+              }
+            ]
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "PP",
+              "RefNum": "PAUAT0127",
+              "CountryOfIssue": "IN",
+              "DocIssueDt": "2020-02-15T00:00:00"
+            },
+            {
+              "DocCode": "VISA",
+              "RefNum": "VISAUAT0127",
+              "DocIssueDt": "2023-05-01T00:00:00"
+            }
           ]
         }
       }
@@ -1709,7 +2178,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1770,7 +2243,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1830,7 +2307,11 @@
                 "HouseNum": "15",
                 "StreetName": "PEPSICOLA",
                 "StreetNum": "5",
-                "Town": "KATHMANDU METROPOLITIAN CITY"
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
               }
             ]
           },
@@ -1889,6 +2370,7 @@
                 "Town": "KATHMANDU METROPOLITIAN CITY",
                 "PrefFormat": "STRUCTURED_FORMAT",
                 "CountryCode": "NP",
+                "StateCode": "3",
                 "CityCode": "306"
               }
             ]

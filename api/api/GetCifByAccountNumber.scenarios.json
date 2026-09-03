@@ -751,6 +751,150 @@
       ]
     }
   },
+  "55509990111": {
+    "_derived": "IDENTITY-UAT-CUSTOMER (2026-08-27) — dedicated Existing Customer for full Identity Verification CBS-mapping UAT. CIF 19990111. Matching RetailCIFInquiry entry carries NATID/CITZ/PP/PAN/VOTID EntityDocDtls records so every mapped section (National ID/Citizenship/Passport/PAN/Voter ID) and its document-optional rule can be exercised in one customer.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990111",
+          "FORACID": "55509990111",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990121": {
+    "_derived": "IDENTITY-UAT-NID-ONLY (2026-08-28) — dedicated single-section scenario. CIF 19990121, National ID only.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990121",
+          "FORACID": "55509990121",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990122": {
+    "_derived": "IDENTITY-UAT-CITIZENSHIP-ONLY (2026-08-28) — dedicated single-section scenario. CIF 19990122, Citizenship only.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990122",
+          "FORACID": "55509990122",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990123": {
+    "_derived": "IDENTITY-UAT-PASSPORT-ONLY (2026-08-28) — dedicated single-section scenario. CIF 19990123, Passport only, no expiry (RetailCIFInquiry provides none).",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990123",
+          "FORACID": "55509990123",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990124": {
+    "_derived": "IDENTITY-UAT-VOTERID-ONLY (2026-08-28) — dedicated single-section scenario. CIF 19990124, Voter ID only.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990124",
+          "FORACID": "55509990124",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990125": {
+    "_derived": "IDENTITY-UAT-PAN-ONLY (2026-08-28) — dedicated single-section scenario. CIF 19990125, PAN only.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990125",
+          "FORACID": "55509990125",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990126": {
+    "_derived": "IDENTITY-UAT-BRCD-MINOR (2026-08-28) — dedicated single-section scenario. CIF 19990126, Birth Registration only; matching test application must be created as Minor for BRCD mapping/optionality to apply (Is_Minor is application-derived, not CBS-derived).",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990126",
+          "FORACID": "55509990126",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
+  "55509990127": {
+    "_derived": "IDENTITY-UAT-VISA (2026-08-28) — dedicated scenario. CIF 19990127, Passport (CountryOfIssue=IN, confirmed live tbl_static_data COUNTRY text_two='IN'->INDIA) + VISA, so the existing non-Nepal-Passport Visa-applicability rule evaluates true without depending on Applying_From.",
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19990127",
+          "FORACID": "55509990127",
+          "SCHM_TYPE": "SBA",
+          "ACCT_CLS_FLG": "N",
+          "SUBMITFORKYC": "Y",
+          "ACCT_STATUS": "ACTIVE",
+          "FREEZE_STATUS": null
+        }
+      ]
+    }
+  },
   "55509990004": {
     "_derived": "MOCK C — UNMAPPABLE PLACE (2026-08-26). CIF 19990004, PlaceOfIssue='TEST UNKNOWN DISTRICT' (no text_two match).",
     "Code": "0",
