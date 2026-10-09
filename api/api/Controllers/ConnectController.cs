@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Concurrent;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace api.Controllers;
 
@@ -67,6 +69,139 @@ public class ConnectController : ControllerBase
         }
     }
 
+    // Simulator state is process-local and is lost on restart. Publish immutable snapshots per CIF.
+    private static readonly ConcurrentDictionary<string, JsonObject> RetCustModState = new(StringComparer.OrdinalIgnoreCase);
+
+    private static object StoreRetCustMod(RequestDto req)
+    {
+        object Failure(string message) => new { Code = "1", Message = message, Data = (object?)null };
+        try
+        {
+            if (!string.Equals(req.FunctionName, "RetCustModKYC", StringComparison.OrdinalIgnoreCase)
+                || string.IsNullOrWhiteSpace(req.Data))
+                return Failure("RetCustModKYC request data is required.");
+
+            var root = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(req.Data)));
+            if (root is not JsonObject payload
+                || payload["RetCustModRequest"] is not JsonObject request
+                || request["RetCustModRq"] is not JsonObject rq
+                || rq["RetCustModMainData"] is not JsonObject main
+                || main["CustModData"] is not JsonObject customer
+                || customer["CustId"] is not JsonValue cifValue
+                || !cifValue.TryGetValue<string>(out var cif) || string.IsNullOrWhiteSpace(cif))
+                return Failure("RetCustModKYC requires CustModData with a non-empty string CustId.");
+
+            foreach (var field in new[] { "PhysicalState", "CustHealthCode", "Rating", "RiskRating" })
+                if (customer[field] != null
+                    && (customer[field] is not JsonValue value || !value.TryGetValue<string>(out _)))
+                    return Failure($"{field} must be a string when supplied.");
+
+            if (rq["RetailCustModRelatedData"] != null && rq["RetailCustModRelatedData"] is not JsonObject)
+                return Failure("RetailCustModRelatedData must be an object when supplied.");
+            var related = rq["RetailCustModRelatedData"] as JsonObject;
+            foreach (var section in new[] { "DemographicModData", "CoreInterfaceInfo" })
+                if (related?[section] != null && related[section] is not JsonObject)
+                    return Failure($"{section} must be an object when supplied.");
+
+            // Null properties emitted by the Admin DTO do not clear previously stored values.
+            static bool HasValue(JsonNode? node) => node switch
+            {
+                null => false,
+                JsonObject obj => obj.Any(p => HasValue(p.Value)),
+                JsonArray arr => arr.Any(HasValue),
+                JsonValue val when val.TryGetValue<string>(out var text) => !string.IsNullOrWhiteSpace(text),
+                _ => true
+            };
+            if (!customer.Any(p => p.Key != "CustId" && p.Key != "AutoApproval" && HasValue(p.Value))
+                && !HasValue(related))
+                return Failure("No customer modification fields were supplied.");
+
+            // Prepare the response before committing state; a missing/broken fixture cannot report success.
+            var response = JsonNode.Parse(System.IO.File.ReadAllText("RetCustModKYC.json"))!.AsObject();
+            var result = response["Data"]?["RetCustModResponse"]?["RetCustModRs"] as JsonObject;
+            if (response["Code"]?.GetValue<string>() != "0" || result == null
+                || result["Status"]?.GetValue<string>() != "SUCCESS")
+                return Failure("RetCustModKYC response template is invalid.");
+            cif = cif.Trim();
+            result["CustId"] = cif;
+            result["Desc"] = $"Retail Customer successfully updated with CIFID {cif}";
+            var responseData = JsonSerializer.Deserialize<object>(response.ToJsonString())!;
+            customer["CustId"] = cif;
+
+            static JsonObject Merge(JsonObject previous, JsonObject update)
+            {
+                var merged = previous.DeepClone().AsObject();
+                foreach (var field in update)
+                {
+                    if (field.Value == null) continue;
+                    merged[field.Key] = field.Value is JsonObject incoming
+                        ? Merge(merged[field.Key] as JsonObject ?? new JsonObject(), incoming)
+                        : field.Value.DeepClone();
+                }
+                return merged;
+            }
+            RetCustModState.AddOrUpdate(cif, _ => Merge(new JsonObject(), rq),
+                (_, previous) => Merge(previous, rq));
+            return responseData;
+        }
+        catch (Exception)
+        {
+            return Failure("RetCustModKYC request could not be validated or stored.");
+        }
+    }
+
+    private static string ApplyRetCustModToInquiry(string inquiryJson, string? base64Data)
+    {
+        try
+        {
+            if (RetCustModState.IsEmpty || string.IsNullOrWhiteSpace(base64Data)) return inquiryJson;
+            var reqRoot = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data)));
+            var custId = reqRoot?["RetCustInqRequest"]?["RetCustInqRq"]?["CustId"]?.GetValue<string>();
+            if (string.IsNullOrWhiteSpace(custId) || !RetCustModState.TryGetValue(custId.Trim(), out var mod)) return inquiryJson;
+
+            var response = JsonNode.Parse(inquiryJson);
+            var rs = response?["Data"]?["RetCustInqResponse"]?["RetCustInqRs"];
+            var custDtls = rs?["RetCustDtls"]?.AsObject();
+            var demoDtls = rs?["DemographicDtls"]?.AsObject();
+            var main = mod["RetCustModMainData"]?["CustModData"];
+            var demo = mod["RetailCustModRelatedData"]?["DemographicModData"];
+
+            static void Copy(JsonObject? target, string targetName, JsonNode? source, string sourceName)
+            {
+                var value = source?[sourceName];
+                if (target == null || value == null || !target.ContainsKey(targetName)) return;
+                target[targetName] = JsonNode.Parse(value.ToJsonString());
+            }
+
+            // Reflect exact-name scalar fields only where the existing inquiry contract exposes them.
+            static void CopyExposed(JsonObject? target, JsonNode? source)
+            {
+                if (target == null || source is not JsonObject fields) return;
+                foreach (var field in fields)
+                    if (field.Value is JsonValue) Copy(target, field.Key, fields, field.Key);
+            }
+            if (response?["Code"]?.GetValue<string>() != "0") return inquiryJson;
+            CopyExposed(custDtls, main);
+            CopyExposed(demoDtls, demo);
+            CopyExposed(rs?["CoreInterfaceInfo"] as JsonObject, mod["RetailCustModRelatedData"]?["CoreInterfaceInfo"]);
+            if (custDtls != null) custDtls["CustId"] = custId.Trim();
+            Copy(custDtls, "ConstitutionCode", main, "ConstitutionCode");
+            Copy(custDtls, "ConstitutionRefCode", main, "ConstitutionCode");
+            Copy(custDtls, "Occupation", main, "Occupation");
+            Copy(custDtls, "PriorityCode", main, "PriorityCode");
+            Copy(custDtls, "Community", main, "Community");
+            Copy(custDtls, "CommunityCode", main, "Community");
+            Copy(custDtls, "PhysicalState", main, "PhysicalState");
+            Copy(demoDtls, "NameOfEmployer", demo, "NameOfEmployer");
+            Copy(demoDtls, "EmploymentStatus", demo, "EmploymentStatus");
+            return response!.ToJsonString();
+        }
+        catch
+        {
+            return inquiryJson;
+        }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] RequestDto req)
     {
@@ -75,6 +210,8 @@ public class ConnectController : ControllerBase
             var scenarioJson = TryGetScenarioResponse(req.FunctionName, req.Data);
             if (scenarioJson != null)
             {
+                if (string.Equals(req.FunctionName, "RetailCIFInquiry", StringComparison.OrdinalIgnoreCase))
+                    scenarioJson = ApplyRetCustModToInquiry(scenarioJson, req.Data);
                 var scenarioData = JsonSerializer.Deserialize<object>(scenarioJson);
                 return Ok(scenarioData);
             }
@@ -100,7 +237,7 @@ public class ConnectController : ControllerBase
         }
         else if (req.FunctionName == "RetailCIFInquiry")
         {
-            var json = System.IO.File.ReadAllText("RetailCIFInquiry.json");
+            var json = ApplyRetCustModToInquiry(System.IO.File.ReadAllText("RetailCIFInquiry.json"), req.Data);
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
         }
@@ -171,9 +308,7 @@ public class ConnectController : ControllerBase
         }
         else if (string.Compare(req.FunctionName, "RetCustModKYC", StringComparison.OrdinalIgnoreCase) == 0)
         {
-            var json = System.IO.File.ReadAllText("RetCustModKYC.json");
-            var data = JsonSerializer.Deserialize<object>(json);
-            return Ok(data);
+            return Ok(StoreRetCustMod(req));
         }
         else if (string.Compare(req.FunctionName, "CorporateCustModKYC", StringComparison.OrdinalIgnoreCase) == 0)
         {
