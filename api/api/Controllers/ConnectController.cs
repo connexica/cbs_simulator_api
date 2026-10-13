@@ -69,6 +69,146 @@ public class ConnectController : ControllerBase
         }
     }
 
+    // RetailCifOpening request check (2026-10-13). The simulator used to return the static success file
+    // whatever was sent. It now reads the same request the Admin application sends to the real CBS
+    // (RetCustAddRequest.RetCustAddRq -- CustDtls.CustData + RelatedDtls, same element names and casing; no
+    // simulator-only field) and rejects only values that are present and wrong. Every element checked here is
+    // optional: a request without it, an undecodable request, or the request shape sent before these fields
+    // existed still gets the unchanged success response. Returns null when the request is acceptable.
+    private static string? ValidateRetailCifOpening(string? base64Data)
+    {
+        // Tightened 2026-10-13: a request that DECODES but is not a RetailCifOpening request (not a JSON object,
+        // or without RetCustAddRequest.RetCustAddRq / CustDtls.CustData) is rejected, not silently accepted.
+        // Only a request with no data, or data that cannot be decoded at all, keeps the old static success.
+        if (string.IsNullOrWhiteSpace(base64Data)) return null;
+        string decoded;
+        try
+        {
+            decoded = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
+        }
+        catch
+        {
+            return null;
+        }
+
+        JsonObject? rq;
+        try
+        {
+            rq = (JsonNode.Parse(decoded) as JsonObject)?["RetCustAddRequest"]?["RetCustAddRq"] as JsonObject;
+        }
+        catch
+        {
+            return "RetailCifOpening request data is not valid JSON.";
+        }
+        if (rq == null) return "RetailCifOpening requires RetCustAddRequest.RetCustAddRq.";
+        if (rq["CustDtls"]?["CustData"] is not JsonObject) return "RetailCifOpening requires CustDtls.CustData.";
+        foreach (var section in new[] { "RelatedDtls" })
+            if (rq[section] != null && rq[section] is not JsonObject) return $"{section} must be an object when supplied.";
+        if ((rq["RelatedDtls"] as JsonObject)?["DemographicData"] is JsonNode demographicNode && demographicNode is not JsonObject)
+            return "DemographicData must be an object when supplied.";
+
+        static string? Text(JsonNode? node) => node is JsonValue v
+            ? (v.TryGetValue<string>(out var s) ? s : v.ToJsonString().Trim('"'))
+            : null;
+        static IEnumerable<JsonObject> Items(JsonNode? node) => node switch
+        {
+            JsonArray array => array.OfType<JsonObject>(),
+            JsonObject single => new[] { single },
+            _ => Array.Empty<JsonObject>()
+        };
+        static bool IsDate(string value, out DateTime date) =>
+            DateTime.TryParse(value, System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None, out date);
+
+        try
+        {
+            // Mobile: PhoneNumLocalCode carries the actual mobile number (older requests sent "977").
+            foreach (var contact in Items(rq["CustDtls"]?["CustData"]?["PhoneEmailDtls"]))
+            {
+                if (!string.Equals(Text(contact["PhoneOrEmail"]), "PHONE", StringComparison.OrdinalIgnoreCase)) continue;
+                var localCode = Text(contact["PhoneNumLocalCode"]);
+                if (localCode != null && (localCode.Length is < 3 or > 15 || !localCode.All(char.IsDigit)))
+                    return "PhoneNumLocalCode must contain 3 to 15 digits.";
+            }
+
+            var related = rq["RelatedDtls"] as JsonObject;
+
+            // Identity documents: any number of entries, none repeated; dates valid when supplied.
+            // The same DocCode + ReferenceNum twice with DIFFERENT details is rejected. An exact repeat of an
+            // entry is tolerated: callers that have not been changed (Non-Individual stakeholder CIF) still
+            // send National ID front and back as two identical NATID entries and must keep succeeding.
+            var seenDocuments = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var document in Items(related?["EntityDoctData"]))
+            {
+                var docCode = Text(document["DocCode"]);
+                if (string.IsNullOrWhiteSpace(docCode)) return "EntityDoctData.DocCode is required.";
+                var documentKey = $"{docCode}|{Text(document["ReferenceNum"])?.Trim()}";
+                var documentJson = document.ToJsonString();
+                if (seenDocuments.TryGetValue(documentKey, out var firstJson))
+                {
+                    if (!string.Equals(firstJson, documentJson, StringComparison.Ordinal))
+                        return $"Conflicting duplicate EntityDoctData entries for DocCode {docCode}.";
+                }
+                else
+                {
+                    seenDocuments[documentKey] = documentJson;
+                }
+
+                DateTime issueDate = default, expiryDate = default;
+                var issueText = Text(document["IssueDt"]);
+                var expiryText = Text(document["ExpDt"]);
+                if (!string.IsNullOrWhiteSpace(issueText) && !IsDate(issueText, out issueDate))
+                    return $"EntityDoctData.IssueDt is not a valid date for DocCode {docCode}.";
+                if (!string.IsNullOrWhiteSpace(expiryText) && !IsDate(expiryText, out expiryDate))
+                    return $"EntityDoctData.ExpDt is not a valid date for DocCode {docCode}.";
+                if (issueDate != default && expiryDate != default && expiryDate <= issueDate)
+                    return $"EntityDoctData.ExpDt must be later than IssueDt for DocCode {docCode}.";
+            }
+
+            if (related?["DemographicData"] is JsonObject demographic)
+            {
+                // CURRENT_EMPLOYMENT and EDU_DET may be sent together; each type once.
+                var seenTypes = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                foreach (var misc in Items(demographic["DemographicMiscData"]))
+                {
+                    var type = Text(misc["Type"]);
+                    if (string.IsNullOrWhiteSpace(type)) return "DemographicMiscData.Type is required.";
+                    if (!seenTypes.Add(type)) return $"Duplicate DemographicMiscData entry for Type {type}.";
+                }
+
+                foreach (var incomeField in new[] { "Annual_Salary_Income", "Annual_Total_Income" })
+                {
+                    var amountText = Text(demographic[incomeField]);
+                    if (amountText != null && (!decimal.TryParse(amountText, System.Globalization.NumberStyles.Number,
+                            System.Globalization.CultureInfo.InvariantCulture, out var amount) || amount < 0))
+                        return $"{incomeField} must be a non-negative number.";
+                }
+
+                var incomeCurrency = Text(demographic["CU_Annual_Salary_Income"]);
+                if (incomeCurrency != null && (incomeCurrency.Length != 3 || !incomeCurrency.All(char.IsLetter)))
+                    return "CU_Annual_Salary_Income must be a 3-letter currency code.";
+
+                foreach (var textField in new[] { "ResidenceCountry", "SourceOfIncome" })
+                    if (demographic[textField] != null && string.IsNullOrWhiteSpace(Text(demographic[textField])))
+                        return $"{textField} must not be empty when supplied.";
+
+                foreach (var flagField in new[] { "DonotCallFlag", "DonotMailFlag" })
+                {
+                    var flag = Text(demographic[flagField]);
+                    if (demographic[flagField] != null && flag is not ("Y" or "N"))
+                        return $"{flagField} must be Y or N when supplied.";
+                }
+            }
+        }
+        catch
+        {
+            // OLD: return null (accepted). A decodable request whose fields cannot be read is malformed.
+            return "RetailCifOpening request could not be validated: unexpected field structure.";
+        }
+
+        return null;
+    }
+
     // Simulator state is process-local and is lost on restart. Publish immutable snapshots per CIF.
     private static readonly ConcurrentDictionary<string, JsonObject> RetCustModState = new(StringComparer.OrdinalIgnoreCase);
 
@@ -324,6 +464,10 @@ public class ConnectController : ControllerBase
         }
         else if (string.Compare(req.FunctionName, "RetailCifOpening", StringComparison.OrdinalIgnoreCase) == 0)
         {
+            var retailCifOpeningError = ValidateRetailCifOpening(req.Data);
+            if (retailCifOpeningError != null)
+                return Ok(new { Code = "1", Message = retailCifOpeningError, Data = (object?)null });
+
             var json = System.IO.File.ReadAllText("RetailCifOpening.json");
             var data = JsonSerializer.Deserialize<object>(json);
             return Ok(data);
