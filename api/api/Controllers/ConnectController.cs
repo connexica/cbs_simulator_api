@@ -20,7 +20,7 @@ public class ConnectController : ControllerBase
     // account number not listed in a scenarios file behaves exactly as before this change.
     private static readonly HashSet<string> ScenarioAwareFunctions = new(StringComparer.OrdinalIgnoreCase)
     {
-        "RetailAccountInquiry", "GetCifByAccountNumber", "RetailCIFInquiry", "AccountFreezeInquiry"
+        "RetailAccountInquiry", "GetCifByAccountNumber", "RetailCIFInquiry", "AccountFreezeInquiry", "GetKycDetailByCif", "GetLinkedCifDetailByAccountNumber"
     };
 
     private static string? TryGetScenarioResponse(string functionName, string? base64Data)
@@ -51,6 +51,10 @@ public class ConnectController : ControllerBase
                 "AccountFreezeInquiry" => reqDoc.RootElement
                     .TryGetProperty("FreezeAcctsInqRequest", out var i) && i.TryGetProperty("FreezeAcctsInqRq", out var j)
                     && j.TryGetProperty("AcctId", out var k) ? k.GetString() : null,
+                // GetKycDetailByCif payload: { TransactionId, cif }
+                "GetKycDetailByCif" => reqDoc.RootElement.TryGetProperty("cif", out var m) ? m.GetString() : null,
+                // GetLinkedCifDetailByAccountNumber payload: { TransactionId, AccountNumber }
+                "GetLinkedCifDetailByAccountNumber" => reqDoc.RootElement.TryGetProperty("AccountNumber", out var n) ? n.GetString() : null,
                 _ => null
             };
             if (string.IsNullOrWhiteSpace(key)) return null;
@@ -342,9 +346,119 @@ public class ConnectController : ControllerBase
         }
     }
 
+    // UAT test-data support (2026-10-15). CIFs / accounts created through RetailCifOpening / RetailAccountOpening get a
+    // unique sequential number (CIF 31000001..., account 55531000001...) and are remembered in memory so later
+    // RetailCIFInquiry / GetCifByAccountNumber / AccountFreezeInquiry calls for them succeed. State is per simulator
+    // process (restart = reset); the numbers never collide with the fixed fixtures or the scenario files.
+    private static long _nextCif = 31000000;
+    private static long _nextAccount = 55531000000;
+    private static readonly ConcurrentDictionary<string, JsonObject> CreatedCifs = new();
+    private static readonly ConcurrentDictionary<string, string> CreatedAccounts = new(); // account -> CIF
+
+    private static string? DecodeString(string? base64Data, params string[] path)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(base64Data)) return null;
+            JsonNode? node = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data)));
+            foreach (var p in path) node = node?[p];
+            return node is JsonValue v && v.TryGetValue<string>(out var text) ? text : null;
+        }
+        catch { return null; }
+    }
+
+    private static string? TryGetCreatedResponse(string functionName, string? base64Data)
+    {
+        try
+        {
+            if (CreatedCifs.IsEmpty && CreatedAccounts.IsEmpty) return null;
+            if (string.Equals(functionName, "RetailCIFInquiry", StringComparison.OrdinalIgnoreCase))
+            {
+                var cif = DecodeString(base64Data, "RetCustInqRequest", "RetCustInqRq", "CustId")?.Trim();
+                if (cif == null || !CreatedCifs.TryGetValue(cif, out var created)) return null;
+                var root = JsonNode.Parse(System.IO.File.ReadAllText("RetailCIFInquiry.json"))!;
+                var dtls = root["Data"]?["RetCustInqResponse"]?["RetCustInqRs"]?["RetCustDtls"] as JsonObject;
+                if (dtls == null) return null;
+                dtls["CustId"] = cif;
+                dtls["Core_cust_id"] = cif;
+                foreach (var field in created)
+                    if (dtls.ContainsKey(field.Key) && field.Value != null) dtls[field.Key] = field.Value.DeepClone();
+                return root.ToJsonString();
+            }
+            var account = (functionName.ToLowerInvariant() switch
+            {
+                "getcifbyaccountnumber" => DecodeString(base64Data, "AccountNumber"),
+                "accountfreezeinquiry" => DecodeString(base64Data, "FreezeAcctsInqRequest", "FreezeAcctsInqRq", "AcctId"),
+                _ => null
+            })?.Trim();
+            if (account == null || !CreatedAccounts.TryGetValue(account, out var ownerCif)) return null;
+            var isCifLookup = functionName.Equals("GetCifByAccountNumber", StringComparison.OrdinalIgnoreCase);
+            var tpl = JsonNode.Parse(System.IO.File.ReadAllText(isCifLookup ? "GetCifByAccountNumber.json" : "AccountFreezeInquiry.json"))!;
+            if (isCifLookup)
+            {
+                var row = tpl["Data"]?["QueryResult"]?[0] as JsonObject;
+                if (row == null) return null;
+                row["CIF_ID"] = ownerCif; row["FORACID"] = account; row["SCHM_TYPE"] = "SBA"; row["SUBMITFORKYC"] = "Y";
+            }
+            else
+            {
+                var custom = tpl["Data"]?["FreezeAcctsInqResponse"]?["FreezeAcctsInq_CustomData"] as JsonObject;
+                if (custom?["acctId"] is JsonObject a) a["foracid"] = account;
+                if (custom != null) custom["cifId"] = ownerCif;
+            }
+            return tpl.ToJsonString();
+        }
+        catch { return null; }
+    }
+
+    private static JsonObject RegisterCreatedCif(string? base64Data)
+    {
+        var cif = Interlocked.Increment(ref _nextCif).ToString();
+        var created = new JsonObject();
+        try
+        {
+            var data = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data!)))
+                ?["RetCustAddRequest"]?["RetCustAddRq"]?["CustDtls"]?["CustData"] as JsonObject;
+            foreach (var key in new[] { "FirstName", "MiddleName", "LastName", "Name", "BirthDt", "Gender", "ShortName" })
+                if (data?[key] is JsonValue v && v.TryGetValue<string>(out var text) && !string.IsNullOrWhiteSpace(text))
+                    created[key] = text;
+            if (created["Name"] == null)
+                created["Name"] = string.Join(" ", new[] { "FirstName", "MiddleName", "LastName" }
+                    .Select(k => created[k]?.GetValue<string>()).Where(t => !string.IsNullOrWhiteSpace(t)));
+        }
+        catch { /* identity fields are best-effort; the CIF is still created */ }
+        CreatedCifs[cif] = created;
+        var response = JsonNode.Parse(System.IO.File.ReadAllText("RetailCifOpening.json"))!;
+        var rs = response["Data"]!["RetCustAddResponse"]!["RetCustAddRs"]!.AsObject();
+        rs["CustId"] = cif;
+        rs["Desc"] = $"Retail Customer successfully created with CIFID {cif}";
+        return response.AsObject();
+    }
+
+    private static JsonObject RegisterCreatedAccount(string? base64Data)
+    {
+        var account = Interlocked.Increment(ref _nextAccount).ToString();
+        var cif = DecodeString(base64Data, "SBAcctAddRequest", "SBAcctAddRq", "CustId", "CustId")?.Trim();
+        if (!string.IsNullOrWhiteSpace(cif)) CreatedAccounts[account] = cif;
+        var response = JsonNode.Parse(System.IO.File.ReadAllText("RetailAccountOpening.json"))!;
+        response["Data"]!["SBAcctAddResponse"]!["SBAcctAddRs"]!["SBAcctId"]!["AcctId"] = account;
+        return response.AsObject();
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] RequestDto req)
     {
+        if (!string.IsNullOrWhiteSpace(req.FunctionName))
+        {
+            var createdJson = TryGetCreatedResponse(req.FunctionName, req.Data);
+            if (createdJson != null)
+            {
+                if (string.Equals(req.FunctionName, "RetailCIFInquiry", StringComparison.OrdinalIgnoreCase))
+                    createdJson = ApplyRetCustModToInquiry(createdJson, req.Data);
+                return Ok(JsonSerializer.Deserialize<object>(createdJson));
+            }
+        }
+
         if (!string.IsNullOrWhiteSpace(req.FunctionName) && ScenarioAwareFunctions.Contains(req.FunctionName))
         {
             var scenarioJson = TryGetScenarioResponse(req.FunctionName, req.Data);
@@ -458,8 +572,7 @@ public class ConnectController : ControllerBase
         }
         else if (string.Compare(req.FunctionName, "RetailAccountOpening", StringComparison.OrdinalIgnoreCase) == 0)
         {
-            var json = System.IO.File.ReadAllText("RetailAccountOpening.json");
-            var data = JsonSerializer.Deserialize<object>(json);
+            var data = JsonSerializer.Deserialize<object>(RegisterCreatedAccount(req.Data).ToJsonString());
             return Ok(data);
         }
         else if (string.Compare(req.FunctionName, "RetailCifOpening", StringComparison.OrdinalIgnoreCase) == 0)
@@ -468,8 +581,7 @@ public class ConnectController : ControllerBase
             if (retailCifOpeningError != null)
                 return Ok(new { Code = "1", Message = retailCifOpeningError, Data = (object?)null });
 
-            var json = System.IO.File.ReadAllText("RetailCifOpening.json");
-            var data = JsonSerializer.Deserialize<object>(json);
+            var data = JsonSerializer.Deserialize<object>(RegisterCreatedCif(req.Data).ToJsonString());
             return Ok(data);
         }
         else if (string.Compare(req.FunctionName, "GetLinkedCifDetailByAccountNumber", StringComparison.OrdinalIgnoreCase) == 0)

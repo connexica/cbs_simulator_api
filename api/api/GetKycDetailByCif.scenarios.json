@@ -1,0 +1,107 @@
+{
+  "_comment": "Simulator-only per-CIF GetKycDetailByCif responses (key = request \"cif\"). Unlisted CIFs fall back to GetKycDetailByCIF.json. Added 2026-10-15 for UAT TC03/TC05/TC06.",
+  "19991002": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991002",
+          "CUSTOMER_TYPE": "I",
+          "CIF_NAME": "TCTWO EXISTINGCUSTOMER",
+          "PEPCONFIRMATION": "NO",
+          "AML_RISK_RATING": "LRISK",
+          "MOBILENO": null,
+          "EMAIL": null,
+          "REASON_FOR_HIGH_RISK": null,
+          "SIS_CATEGORY": "GEN",
+          "CUSTOMERCATEGORY": "IND",
+          "TAX_CATEGORY": "6PCT",
+          "SECTOR": null,
+          "SUBSECTOR": null,
+          "SUBMITFORKYC": "Y",
+          "STAFF_PENDING": null,
+          "CUSTOMER_PENDING": null
+        }
+      ]
+    }
+  },
+  "19991003": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991003",
+          "CUSTOMER_TYPE": "I",
+          "CIF_NAME": "TCTHREE GUARDIANEXISTING",
+          "PEPCONFIRMATION": "NO",
+          "AML_RISK_RATING": "LRISK",
+          "MOBILENO": null,
+          "EMAIL": null,
+          "REASON_FOR_HIGH_RISK": null,
+          "SIS_CATEGORY": "GEN",
+          "CUSTOMERCATEGORY": "IND",
+          "TAX_CATEGORY": "6PCT",
+          "SECTOR": null,
+          "SUBSECTOR": null,
+          "SUBMITFORKYC": "Y",
+          "STAFF_PENDING": null,
+          "CUSTOMER_PENDING": null
+        }
+      ]
+    }
+  },
+  "19991005": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991005",
+          "CUSTOMER_TYPE": "I",
+          "CIF_NAME": "TCFIVE INCOMPLETEOPTIONAL",
+          "PEPCONFIRMATION": "NO",
+          "AML_RISK_RATING": "LRISK",
+          "MOBILENO": null,
+          "EMAIL": null,
+          "REASON_FOR_HIGH_RISK": null,
+          "SIS_CATEGORY": "GEN",
+          "CUSTOMERCATEGORY": "IND",
+          "TAX_CATEGORY": "6PCT",
+          "SECTOR": null,
+          "SUBSECTOR": null,
+          "SUBMITFORKYC": "Y",
+          "STAFF_PENDING": null,
+          "CUSTOMER_PENDING": "Occupation, PAN, Email"
+        }
+      ]
+    }
+  },
+  "19991006": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991006",
+          "CUSTOMER_TYPE": "I",
+          "CIF_NAME": "TCSIX PEPHIGHRISK",
+          "PEPCONFIRMATION": "YES",
+          "AML_RISK_RATING": "HRISK",
+          "MOBILENO": null,
+          "EMAIL": null,
+          "REASON_FOR_HIGH_RISK": "PEP",
+          "SIS_CATEGORY": "GEN",
+          "CUSTOMERCATEGORY": "IND",
+          "TAX_CATEGORY": "6PCT",
+          "SECTOR": null,
+          "SUBSECTOR": null,
+          "SUBMITFORKYC": "Y",
+          "STAFF_PENDING": null,
+          "CUSTOMER_PENDING": null
+        }
+      ]
+    }
+  }
+}

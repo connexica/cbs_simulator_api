@@ -192,3 +192,17 @@ never used as his CBS email.
 - `accountopening.web/.../ApplyForAccount.cshtml.cs` — comment-only correction (misleading `"CELL PH"`
   text in a code comment corrected to `"CELLPH"`, matching the executable logic, which was already
   correct). No logic change.
+
+## 2026-10-15 — End-to-end UAT dataset (TC01–TC06) and created-CIF persistence
+
+| TC | Purpose | Account | CIF | Mobile / Email | Notes |
+|---|---|---|---|---|---|
+| TC01 | New individual, no CIF | n/a | n/a | any | Use the portal "new customer" path; no CBS lookup. After Branch creates the CIF, simulator issues `31000001…` and keeps it fetchable. |
+| TC02 | Existing individual, editable mobile/email | 55509991002 | 19991002 | 9800000202 / tc02.existing@example.com | Eligible (SBA, ACTIVE, SUBMITFORKYC=Y). Change mobile/email, then verify RetailCIFInquiry reflects RetCustModKYC. |
+| TC03 | Minor with existing Guardian CIF | 55509991003 (Guardian) | 19991003 | 9800000203 / tc03.guardian@example.com | Search Guardian by this account; applicant DOB < 18. |
+| TC04 | Minor, Guardian without CIF | n/a | n/a | any | Enter Guardian manually as new; Guardian CIF is generated like TC01. |
+| TC05 | Existing CIF, incomplete optional data | 55509991005 | 19991005 | 9800000205 / none | Occupation, PAN, Education, place of birth, e-mail all empty. |
+| TC06 | Existing PEP=Yes, HIGH AML | 55509991006 | 19991006 | 9800000206 / tc06.pep@example.com | `GetKycDetailByCif` -> PEPCONFIRMATION=YES, AML_RISK_RATING=HRISK. |
+
+Behaviour added: `GetKycDetailByCif.scenarios.json` (per-CIF, falls back to GetKycDetailByCIF.json); `RetailCifOpening` / `RetailAccountOpening` now return unique sequential CIF (31000001…) / account (55531000001…) numbers and remember them in memory so `RetailCIFInquiry`, `GetCifByAccountNumber`, `AccountFreezeInquiry` find them (reset on restart); startup refuses `ASPNETCORE_ENVIRONMENT=Production` unless `Simulator:AllowProduction=true`. Created CIFs reuse the default inquiry template for non-identity fields (PAN, phone, e-mail are placeholder values).
+Not changed: NID verification (always HIT; `SimulateNoHit` const), ENADOC token/documents (static).

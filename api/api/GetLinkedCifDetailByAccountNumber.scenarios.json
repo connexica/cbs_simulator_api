@@ -1,0 +1,123 @@
+{
+  "_comment": "Simulator-only GetLinkedCifDetailByAccountNumber responses keyed by AccountNumber, matching the CIF/account pairs in GetCifByAccountNumber.scenarios.json. Unlisted accounts fall back to GetLinkedCifDetailByAccountNumber.json. Added 2026-10-16.",
+  "55509991002": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991002",
+          "FORACID": "55509991002",
+          "ACCT_NAME": "TCTWO EXISTINGCUSTOMER",
+          "LINKED_CIF": "19991002",
+          "LINKED_CIF_NAME": "TCTWO EXISTINGCUSTOMER",
+          "ACCT_POA_AS_SRL_NUM": "001",
+          "ACCT_POA_AS_REC_TYPE": "M",
+          "KYCFLAG": "A",
+          "STAFF_PENDING": "Employee_Designation, Employer_Address",
+          "CUSTOMER_PENDING": null,
+          "RELATION_CODE": "MAIN",
+          "RELATION": "MAIN",
+          "SHAREHOLDER_CIF": null,
+          "SHAREHOLDER_CIF_NAME": null,
+          "CIF_TYPE": null,
+          "SHAREHOLDER_TYPE": null,
+          "COUNTRY": null,
+          "TOTAL_EQUITY_PERCENTAGE": null,
+          "NUMBER_OF_SHARES": null,
+          "FINANCIAL_DETAILS_ID": null
+        }
+      ]
+    }
+  },
+  "55509991003": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991003",
+          "FORACID": "55509991003",
+          "ACCT_NAME": "TCTHREE GUARDIANEXISTING",
+          "LINKED_CIF": "19991003",
+          "LINKED_CIF_NAME": "TCTHREE GUARDIANEXISTING",
+          "ACCT_POA_AS_SRL_NUM": "001",
+          "ACCT_POA_AS_REC_TYPE": "M",
+          "KYCFLAG": "A",
+          "STAFF_PENDING": "Employee_Designation, Employer_Address",
+          "CUSTOMER_PENDING": null,
+          "RELATION_CODE": "MAIN",
+          "RELATION": "MAIN",
+          "SHAREHOLDER_CIF": null,
+          "SHAREHOLDER_CIF_NAME": null,
+          "CIF_TYPE": null,
+          "SHAREHOLDER_TYPE": null,
+          "COUNTRY": null,
+          "TOTAL_EQUITY_PERCENTAGE": null,
+          "NUMBER_OF_SHARES": null,
+          "FINANCIAL_DETAILS_ID": null
+        }
+      ]
+    }
+  },
+  "55509991005": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991005",
+          "FORACID": "55509991005",
+          "ACCT_NAME": "TCFIVE INCOMPLETEOPTIONAL",
+          "LINKED_CIF": "19991005",
+          "LINKED_CIF_NAME": "TCFIVE INCOMPLETEOPTIONAL",
+          "ACCT_POA_AS_SRL_NUM": "001",
+          "ACCT_POA_AS_REC_TYPE": "M",
+          "KYCFLAG": "A",
+          "STAFF_PENDING": "Employee_Designation, Employer_Address",
+          "CUSTOMER_PENDING": null,
+          "RELATION_CODE": "MAIN",
+          "RELATION": "MAIN",
+          "SHAREHOLDER_CIF": null,
+          "SHAREHOLDER_CIF_NAME": null,
+          "CIF_TYPE": null,
+          "SHAREHOLDER_TYPE": null,
+          "COUNTRY": null,
+          "TOTAL_EQUITY_PERCENTAGE": null,
+          "NUMBER_OF_SHARES": null,
+          "FINANCIAL_DETAILS_ID": null
+        }
+      ]
+    }
+  },
+  "55509991006": {
+    "Code": "0",
+    "Message": "Success",
+    "Data": {
+      "QueryResult": [
+        {
+          "CIF_ID": "19991006",
+          "FORACID": "55509991006",
+          "ACCT_NAME": "TCSIX PEPHIGHRISK",
+          "LINKED_CIF": "19991006",
+          "LINKED_CIF_NAME": "TCSIX PEPHIGHRISK",
+          "ACCT_POA_AS_SRL_NUM": "001",
+          "ACCT_POA_AS_REC_TYPE": "M",
+          "KYCFLAG": "A",
+          "STAFF_PENDING": "Employee_Designation, Employer_Address",
+          "CUSTOMER_PENDING": null,
+          "RELATION_CODE": "MAIN",
+          "RELATION": "MAIN",
+          "SHAREHOLDER_CIF": null,
+          "SHAREHOLDER_CIF_NAME": null,
+          "CIF_TYPE": null,
+          "SHAREHOLDER_TYPE": null,
+          "COUNTRY": null,
+          "TOTAL_EQUITY_PERCENTAGE": null,
+          "NUMBER_OF_SHARES": null,
+          "FINANCIAL_DETAILS_ID": null
+        }
+      ]
+    }
+  }
+}

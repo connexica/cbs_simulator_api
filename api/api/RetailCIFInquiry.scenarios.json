@@ -1,6 +1,5 @@
 {
   "_comment": "Simulator-only test scenarios for RetailCIFInquiry, keyed by test CIF (as returned by the matching GetCifByAccountNumber scenario entries). Looked up by ConnectController before falling back to the default RetailCIFInquiry.json. See TestScenarios.md. Entries below 80000001 predate this pass (2026-08-08); PrefFlag was added to those entries' PhoneEmailInfo records on 2026-08-17 (they previously had none — the current application code requires PrefFlag=Y on the matched record, so these would otherwise no longer resolve a mobile/email). CIF 70000001-70000007 (stakeholder samples) and 80000001-80000023 (derived edge cases) were added 2026-08-17. 2026-09-03: the 6 Guardian mocks 19990001-19990006 had a RetCustAddrInfo shape identical to Mock G (19990007) EXCEPT for PrefFormat/CountryCode/StateCode/CityCode — since PersonalInformation.cshtml.cs's OnPostCheckGuardianAccountDetail only resolves Municipality/Ward Number when PrefFormat=='STRUCTURED_FORMAT' (Country/District resolve unconditionally from CountryCode/CityCode, which these 6 also lacked), only Mock G actually exercised the full address cascade before this fix — the other 6 silently left Municipality/Ward (and, via the missing CityCode, District/Country) blank regardless of any Search Guardian mapping code. Added the same already-proven values Mock G already used (STRUCTURED_FORMAT / NP / 3 / 306), purely additive — each mock's own deliberate NATID/EntityDocDtls test gap (no-NATID on 19990001, unmappable PlaceOfIssue on 19990004, missing DocIssueDt on 19990005, missing all NATID fields on 19990006) is untouched.",
-
   "88880005": {
     "Code": "0",
     "Message": "Operation Successful",
@@ -277,7 +276,6 @@
       }
     }
   },
-
   "70000001": {
     "_stakeholder_sample": "A. CHANDRA KALA GHALE — blocked earlier at GetCif (DORMANT); included for account/CIF consistency only",
     "Code": "0",
@@ -576,7 +574,6 @@
       }
     }
   },
-
   "80000001": {
     "_derived": "VALID_CAA — SUCCESS",
     "Code": "0",
@@ -1488,7 +1485,6 @@
     "Message": "Customer not found",
     "Data": null
   },
-
   "19990001": {
     "_derived": "GD-NATID-TEST-A (2026-08-18) — Existing Guardian search / no-NATID case (account 55509990001). EntityDocDtls deliberately has NO NATID-containing DocCode (BIRTHCERT/PASSPORT only) — Guardian's National ID section/upload must SHOW and stay required. Town uses the exact same spelling already proven elsewhere in this simulator (CorporateCifInquiry_old.json) rather than a guessed/corrected one, to maximize the chance it matches real Municipality static data.",
     "Code": "0",
@@ -1541,8 +1537,12 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "BIRTHCERT"
+            },
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -1600,14 +1600,18 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "BIRTHCERT"
+            },
             {
               "DocCode": "NATID",
               "RefNum": "1234567890",
               "PlaceOfIssue": "306",
               "DocIssueDt": "2018-05-15T00:00:00"
             },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -1665,14 +1669,18 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "BIRTHCERT"
+            },
             {
               "DocCode": "NATID",
               "RefNum": "2234567890",
               "PlaceOfIssue": "207",
               "DocIssueDt": "2019-02-10T00:00:00"
             },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -2187,14 +2195,18 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "BIRTHCERT"
+            },
             {
               "DocCode": "NATID",
               "RefNum": "3234567890",
               "PlaceOfIssue": "TEST UNKNOWN DISTRICT",
               "DocIssueDt": "2017-11-20T00:00:00"
             },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -2252,13 +2264,17 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "BIRTHCERT"
+            },
             {
               "DocCode": "NATID",
               "RefNum": "4234567890",
               "PlaceOfIssue": "306"
             },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -2316,9 +2332,15 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
-            { "DocCode": "NATID" },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "BIRTHCERT"
+            },
+            {
+              "DocCode": "NATID"
+            },
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
         }
       }
@@ -2376,15 +2398,243 @@
             ]
           },
           "EntityDocDtls": [
-            { "DocCode": "BIRTHCERT" },
+            {
+              "DocCode": "BIRTHCERT"
+            },
             {
               "DocCode": "NATID",
               "RefNum": "5234567890",
               "PlaceOfIssue": "306",
               "DocIssueDt": "2012-06-10T00:00:00"
             },
-            { "DocCode": "PASSPORT" }
+            {
+              "DocCode": "PASSPORT"
+            }
           ]
+        }
+      }
+    }
+  },
+  "19991002": {
+    "_stakeholder_sample": "E. RAJ KUMAR SHRESTHA — SUCCESS baseline (exact PhoneEmailInfo shape per stakeholder-supplied CBS sample)",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19991002",
+            "FirstName": "TCTWO",
+            "MiddleName": null,
+            "LastName": "EXISTINGCUSTOMER",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1988-04-12T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "EmailInfo": "",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNum": "+977(01)9800000202",
+                "PhoneNumCountryCode": "977",
+                "PhoneNumLocalCode": "9800000202",
+                "PhoneOrEmail": "PHONE",
+                "PrefFlag": "Y"
+              },
+              {
+                "EmailInfo": "TC02.EXISTING@EXAMPLE.COM",
+                "PhoneEmailType": "COMMEML",
+                "PhoneNum": "",
+                "PhoneNumCountryCode": "",
+                "PhoneNumLocalCode": "",
+                "PhoneOrEmail": "EMAIL",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [],
+            "Core_cust_id": "19991002",
+            "Name": "TCTWO EXISTINGCUSTOMER",
+            "AcctName": "TCTWO EXISTINGCUSTOMER",
+            "PrefName": "TCTWO EXISTINGCUSTOMER"
+          }
+        }
+      }
+    }
+  },
+  "19991003": {
+    "_derived": "MOCK G — ADULT GUARDIAN, POSITIVE CASE (2026-08-26). See matching GetCifByAccountNumber.scenarios.json entry (account 55509990007) for why this was needed: every prior GD-NATID Mock (19990001-19990006) reused the original template's BirthDt='2015-08-26', a deliberately-MINOR customer, so all of them fail the >=18 Guardian check by design — that check is correct and was left untouched. This is a genuinely separate, isolated adult record. BirthDt='1990-05-15' (age 36 as of 2026-08-26, confirmed >=18). PlaceOfIssue='306' confirmed live against current CAO-UATDB (tbl_static_data type='DISTRICT', text='KATHMANDU', text_two='306', value=28) before use, not assumed.",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19991003",
+            "FirstName": "TCTHREE",
+            "MiddleName": null,
+            "LastName": "GUARDIANEXISTING",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1982-09-23T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "PhoneOrEmail": "PHONE",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNumLocalCode": "9800000203",
+                "PrefFlag": "Y"
+              },
+              {
+                "PhoneOrEmail": "EMAIL",
+                "EmailInfo": "TC03.GUARDIAN@EXAMPLE.COM",
+                "PrefFlag": "Y"
+              }
+            ],
+            "RetCustAddrInfo": [
+              {
+                "AddrCategory": "Mailing",
+                "HouseNum": "15",
+                "StreetName": "PEPSICOLA",
+                "StreetNum": "5",
+                "Town": "KATHMANDU METROPOLITIAN CITY",
+                "PrefFormat": "STRUCTURED_FORMAT",
+                "CountryCode": "NP",
+                "StateCode": "3",
+                "CityCode": "306"
+              }
+            ],
+            "Gender": "M"
+          },
+          "EntityDocDtls": [
+            {
+              "DocCode": "BIRTHCERT"
+            },
+            {
+              "DocCode": "NATID",
+              "RefNum": "5234560203",
+              "PlaceOfIssue": "306",
+              "DocIssueDt": "2012-06-10T00:00:00"
+            },
+            {
+              "DocCode": "PASSPORT"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "19991005": {
+    "_stakeholder_sample": "E. RAJ KUMAR SHRESTHA — SUCCESS baseline (exact PhoneEmailInfo shape per stakeholder-supplied CBS sample)",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19991005",
+            "FirstName": "TCFIVE",
+            "MiddleName": null,
+            "LastName": "INCOMPLETEOPTIONAL",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1990-02-17T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "EmailInfo": "",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNum": "+977(01)9800000205",
+                "PhoneNumCountryCode": "977",
+                "PhoneNumLocalCode": "9800000205",
+                "PhoneOrEmail": "PHONE",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [],
+            "Core_cust_id": "19991005",
+            "Name": "TCFIVE INCOMPLETEOPTIONAL",
+            "AcctName": "TCFIVE INCOMPLETEOPTIONAL",
+            "PrefName": "TCFIVE INCOMPLETEOPTIONAL"
+          }
+        }
+      }
+    }
+  },
+  "19991006": {
+    "_stakeholder_sample": "E. RAJ KUMAR SHRESTHA — SUCCESS baseline (exact PhoneEmailInfo shape per stakeholder-supplied CBS sample)",
+    "Code": "0",
+    "Message": "Operation Successful",
+    "Data": {
+      "RetCustInqResponse": {
+        "RetCustInqRs": {
+          "RetCustDtls": {
+            "CustId": "19991006",
+            "FirstName": "TCSIX",
+            "MiddleName": null,
+            "LastName": "PEPHIGHRISK",
+            "Status": "A",
+            "CustStatus": "ACTVE",
+            "IsBlacklisted": "N",
+            "IsSuspended": "N",
+            "IsNegated": "N",
+            "PurgeFlag": "N",
+            "ConstitutionCode": "INDIM",
+            "submitForKYC": "Y",
+            "SalutationCode": "MR.",
+            "IsMinor": "N",
+            "IsNRE": "N",
+            "BirthDt": "1975-11-30T00:00:00",
+            "PhoneEmailInfo": [
+              {
+                "EmailInfo": "",
+                "PhoneEmailType": "CELLPH",
+                "PhoneNum": "+977(01)9800000206",
+                "PhoneNumCountryCode": "977",
+                "PhoneNumLocalCode": "9800000206",
+                "PhoneOrEmail": "PHONE",
+                "PrefFlag": "Y"
+              },
+              {
+                "EmailInfo": "TC06.PEP@EXAMPLE.COM",
+                "PhoneEmailType": "COMMEML",
+                "PhoneNum": "",
+                "PhoneNumCountryCode": "",
+                "PhoneNumLocalCode": "",
+                "PhoneOrEmail": "EMAIL",
+                "PrefFlag": "Y"
+              }
+            ],
+            "EntityDocDtls": [],
+            "Core_cust_id": "19991006",
+            "Name": "TCSIX PEPHIGHRISK",
+            "AcctName": "TCSIX PEPHIGHRISK",
+            "PrefName": "TCSIX PEPHIGHRISK",
+            "Health": "HRISK"
+          }
         }
       }
     }
